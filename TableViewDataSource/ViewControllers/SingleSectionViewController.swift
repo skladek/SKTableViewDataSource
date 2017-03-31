@@ -12,7 +12,6 @@ class SingleSectionViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
 
-    let array = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"]
     var dataSource: TableViewDataSource<String>?
 
     override func viewDidLoad() {
@@ -21,6 +20,7 @@ class SingleSectionViewController: UIViewController {
         let reuseId = "SingleSectionViewControllerReuseId"
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseId)
 
+        let array = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"]
         dataSource = TableViewDataSource(objects: array, cellReuseId: reuseId)
         tableView.dataSource = dataSource
     }
