@@ -17,6 +17,8 @@
 		C51379DC1E8DED3A00E1BB01 /* TableViewDataSourceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51379DB1E8DED3A00E1BB01 /* TableViewDataSourceSpec.swift */; };
 		C51379E11E8DF2B400E1BB01 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51379DF1E8DF2B400E1BB01 /* HomeViewController.swift */; };
 		C51379E21E8DF2B400E1BB01 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C51379E01E8DF2B400E1BB01 /* HomeViewController.xib */; };
+		C51379E51E8DF54400E1BB01 /* MultiSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51379E31E8DF54400E1BB01 /* MultiSectionViewController.swift */; };
+		C51379E61E8DF54400E1BB01 /* MultiSectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C51379E41E8DF54400E1BB01 /* MultiSectionViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		C51379DB1E8DED3A00E1BB01 /* TableViewDataSourceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDataSourceSpec.swift; sourceTree = "<group>"; };
 		C51379DF1E8DF2B400E1BB01 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C51379E01E8DF2B400E1BB01 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		C51379E31E8DF54400E1BB01 /* MultiSectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiSectionViewController.swift; sourceTree = "<group>"; };
+		C51379E41E8DF54400E1BB01 /* MultiSectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MultiSectionViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +131,8 @@
 			children = (
 				C51379DF1E8DF2B400E1BB01 /* HomeViewController.swift */,
 				C51379E01E8DF2B400E1BB01 /* HomeViewController.xib */,
+				C51379E31E8DF54400E1BB01 /* MultiSectionViewController.swift */,
+				C51379E41E8DF54400E1BB01 /* MultiSectionViewController.xib */,
 				C51379C81E8DD90C00E1BB01 /* SingleSectionViewController.swift */,
 				C51379C91E8DD90C00E1BB01 /* SingleSectionViewController.xib */,
 			);
@@ -237,6 +243,7 @@
 			files = (
 				C51379CF1E8DD90C00E1BB01 /* SingleSectionViewController.xib in Resources */,
 				C51379CB1E8DD90C00E1BB01 /* Assets.xcassets in Resources */,
+				C51379E61E8DF54400E1BB01 /* MultiSectionViewController.xib in Resources */,
 				C51379E21E8DF2B400E1BB01 /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,6 +285,7 @@
 				C51379CD1E8DD90C00E1BB01 /* TableViewDataSource.swift in Sources */,
 				C51379CA1E8DD90C00E1BB01 /* AppDelegate.swift in Sources */,
 				C51379E11E8DF2B400E1BB01 /* HomeViewController.swift in Sources */,
+				C51379E51E8DF54400E1BB01 /* MultiSectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

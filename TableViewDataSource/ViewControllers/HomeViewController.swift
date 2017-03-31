@@ -22,10 +22,11 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let reuseId = "SingleSectionViewControllerReuseId"
+        let reuseId = "HomeViewControllerReuseId"
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseId)
 
-        let array = [Selection(title: "Single Section", viewController: SingleSectionViewController())]
+        let array = [Selection(title: "Single Section", viewController: SingleSectionViewController()),
+                     Selection(title: "Multiple Sections", viewController: MultiSectionViewController())]
         dataSource = TableViewDataSource(objects: array, cellReuseId: reuseId)
         tableView.dataSource = dataSource
     }
