@@ -32,7 +32,7 @@ class TableViewDataSource<T>: NSObject, UITableViewDataSource {
 
     // MARK: Private Methods
 
-    func sectionArray(_ indexPath: IndexPath) -> [T] {
+    private func sectionArray(_ indexPath: IndexPath) -> [T] {
         return objects[indexPath.section]
     }
 

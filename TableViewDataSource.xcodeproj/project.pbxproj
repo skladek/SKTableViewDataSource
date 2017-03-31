@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C51379AF1E8DBCE500E1BB01 /* TableViewDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51379AE1E8DBCE500E1BB01 /* TableViewDataSourceTests.swift */; };
 		C51379CA1E8DD90C00E1BB01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51379C21E8DD90C00E1BB01 /* AppDelegate.swift */; };
 		C51379CB1E8DD90C00E1BB01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C51379C31E8DD90C00E1BB01 /* Assets.xcassets */; };
 		C51379CD1E8DD90C00E1BB01 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51379C61E8DD90C00E1BB01 /* TableViewDataSource.swift */; };
 		C51379CE1E8DD90C00E1BB01 /* SingleSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51379C81E8DD90C00E1BB01 /* SingleSectionViewController.swift */; };
 		C51379CF1E8DD90C00E1BB01 /* SingleSectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C51379C91E8DD90C00E1BB01 /* SingleSectionViewController.xib */; };
+		C51379D81E8DEA9400E1BB01 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C51379D11E8DE98500E1BB01 /* Nimble.framework */; };
+		C51379D91E8DEA9700E1BB01 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C51379D21E8DE98500E1BB01 /* Quick.framework */; };
+		C51379DC1E8DED3A00E1BB01 /* TableViewDataSourceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51379DB1E8DED3A00E1BB01 /* TableViewDataSourceSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,7 +30,6 @@
 /* Begin PBXFileReference section */
 		C51379961E8DBCE500E1BB01 /* TableViewDataSource.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableViewDataSource.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C51379AA1E8DBCE500E1BB01 /* TableViewDataSourceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TableViewDataSourceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C51379AE1E8DBCE500E1BB01 /* TableViewDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSourceTests.swift; sourceTree = "<group>"; };
 		C51379B01E8DBCE500E1BB01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C51379C21E8DD90C00E1BB01 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C51379C31E8DD90C00E1BB01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -36,6 +37,9 @@
 		C51379C61E8DD90C00E1BB01 /* TableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
 		C51379C81E8DD90C00E1BB01 /* SingleSectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleSectionViewController.swift; sourceTree = "<group>"; };
 		C51379C91E8DD90C00E1BB01 /* SingleSectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleSectionViewController.xib; sourceTree = "<group>"; };
+		C51379D11E8DE98500E1BB01 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = SOURCE_ROOT; };
+		C51379D21E8DE98500E1BB01 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = SOURCE_ROOT; };
+		C51379DB1E8DED3A00E1BB01 /* TableViewDataSourceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDataSourceSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +54,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C51379D91E8DEA9700E1BB01 /* Quick.framework in Frameworks */,
+				C51379D81E8DEA9400E1BB01 /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +86,7 @@
 				C51379C11E8DD90C00E1BB01 /* Application */,
 				C51379C51E8DD90C00E1BB01 /* DataSource */,
 				C51379C71E8DD90C00E1BB01 /* ViewControllers */,
+				C51379D51E8DE98C00E1BB01 /* Frameworks */,
 			);
 			path = TableViewDataSource;
 			sourceTree = "<group>";
@@ -87,7 +94,7 @@
 		C51379AD1E8DBCE500E1BB01 /* TableViewDataSourceTests */ = {
 			isa = PBXGroup;
 			children = (
-				C51379AE1E8DBCE500E1BB01 /* TableViewDataSourceTests.swift */,
+				C51379DA1E8DED3A00E1BB01 /* DataSource */,
 				C51379B01E8DBCE500E1BB01 /* Info.plist */,
 			);
 			path = TableViewDataSourceTests;
@@ -118,6 +125,23 @@
 				C51379C91E8DD90C00E1BB01 /* SingleSectionViewController.xib */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C51379D51E8DE98C00E1BB01 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C51379D11E8DE98500E1BB01 /* Nimble.framework */,
+				C51379D21E8DE98500E1BB01 /* Quick.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C51379DA1E8DED3A00E1BB01 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				C51379DB1E8DED3A00E1BB01 /* TableViewDataSourceSpec.swift */,
+			);
+			path = DataSource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,6 +199,7 @@
 					};
 					C51379A91E8DBCE500E1BB01 = {
 						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						TestTargetID = C51379951E8DBCE500E1BB01;
 					};
@@ -252,7 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C51379AF1E8DBCE500E1BB01 /* TableViewDataSourceTests.swift in Sources */,
+				C51379DC1E8DED3A00E1BB01 /* TableViewDataSourceSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +387,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/TableViewDataSource/Application/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = skladek.TableViewDataSource;
@@ -374,6 +403,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/TableViewDataSource/Application/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = skladek.TableViewDataSource;
@@ -387,10 +420,16 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TableViewDataSourceTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = skladek.TableViewDataSourceTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TableViewDataSource.app/TableViewDataSource";
 			};
@@ -401,6 +440,11 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TableViewDataSourceTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = skladek.TableViewDataSourceTests;
