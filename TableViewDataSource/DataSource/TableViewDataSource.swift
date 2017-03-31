@@ -9,20 +9,37 @@
 import UIKit
 
 class TableViewDataSource<T>: NSObject, UITableViewDataSource {
-    let reuseId = "SingleSectionCellReuseId"
+    let reuseId: String
 
-    let singleSectionArray: [T]
+    let objects: [[T]]
 
-    init(objects: [T]) {
-        self.singleSectionArray = objects
+    convenience init(objects: [T], cellReuseId: String) {
+        self.init(objects: [objects], cellReuseId: cellReuseId)
     }
+
+    init(objects: [[T]], cellReuseId: String) {
+        self.objects = objects
+        self.reuseId = cellReuseId
+    }
+
+    // MARK: Instance Methods
 
     func object(_ indexPath: IndexPath) -> T {
-        return singleSectionArray[indexPath.row]
+        let section = sectionArray(indexPath)
+
+        return section[indexPath.row]
     }
 
+    // MARK: Private Methods
+
+    func sectionArray(_ indexPath: IndexPath) -> [T] {
+        return objects[indexPath.section]
+    }
+
+    // MARK: UITableViewDataSource Methods
+
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return objects.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -30,6 +47,9 @@ class TableViewDataSource<T>: NSObject, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return singleSectionArray.count
+        let indexPath = IndexPath(row: 0, section: section)
+        let section = sectionArray(indexPath)
+
+        return section.count
     }
 }

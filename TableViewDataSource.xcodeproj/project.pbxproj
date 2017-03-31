@@ -10,7 +10,6 @@
 		C51379AF1E8DBCE500E1BB01 /* TableViewDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51379AE1E8DBCE500E1BB01 /* TableViewDataSourceTests.swift */; };
 		C51379CA1E8DD90C00E1BB01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51379C21E8DD90C00E1BB01 /* AppDelegate.swift */; };
 		C51379CB1E8DD90C00E1BB01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C51379C31E8DD90C00E1BB01 /* Assets.xcassets */; };
-		C51379CC1E8DD90C00E1BB01 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C51379C41E8DD90C00E1BB01 /* Info.plist */; };
 		C51379CD1E8DD90C00E1BB01 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51379C61E8DD90C00E1BB01 /* TableViewDataSource.swift */; };
 		C51379CE1E8DD90C00E1BB01 /* SingleSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51379C81E8DD90C00E1BB01 /* SingleSectionViewController.swift */; };
 		C51379CF1E8DD90C00E1BB01 /* SingleSectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C51379C91E8DD90C00E1BB01 /* SingleSectionViewController.xib */; };
@@ -204,7 +203,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C51379CC1E8DD90C00E1BB01 /* Info.plist in Resources */,
 				C51379CF1E8DD90C00E1BB01 /* SingleSectionViewController.xib in Resources */,
 				C51379CB1E8DD90C00E1BB01 /* Assets.xcassets in Resources */,
 			);

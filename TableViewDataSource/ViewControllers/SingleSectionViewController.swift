@@ -13,29 +13,22 @@ class SingleSectionViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
 
     let array = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"]
-    let dataSource: TableViewDataSource<String>
-
-    init() {
-        dataSource = TableViewDataSource(objects: array)
-
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    var dataSource: TableViewDataSource<String>?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: dataSource.reuseId)
+        let reuseId = "SingleSectionViewControllerReuseId"
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseId)
+
+        dataSource = TableViewDataSource(objects: array, cellReuseId: reuseId)
         tableView.dataSource = dataSource
     }
 }
 
 extension SingleSectionViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let object = dataSource.object(indexPath)
+        let object = dataSource?.object(indexPath)
 
         cell.textLabel?.text = object
     }
