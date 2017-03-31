@@ -11,7 +11,7 @@ import UIKit
 class TableViewDataSource<T>: NSObject, UITableViewDataSource {
     let reuseId: String
 
-    let objects: [[T]]
+    var objects: [[T]]
 
     convenience init(objects: [T], cellReuseId: String) {
         self.init(objects: [objects], cellReuseId: cellReuseId)
