@@ -1,0 +1,5 @@
+language: swift
+osx_image: xcode8.3
+script: fastlane test
+xcode_project: TableViewDataSource.xcodeproj
+xcode_scheme: TableViewDataSource
