@@ -17,7 +17,7 @@ protocol TableViewDataSourceDelegate {
     optional func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool
 
     @objc
-    optional func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    optional func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell?
 
     @objc
     optional func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)
@@ -48,9 +48,8 @@ class TableViewDataSource<T>: NSObject, UITableViewDataSource {
     /// The objects array backing the table view.
     var objects: [[T]]
 
-    // MARK: Private Variables
-
-    private let reuseId: String
+    /// The cell reuse identifier
+    let reuseId: String
 
     // MARK: Initializers
 
