@@ -69,6 +69,26 @@ class TableViewDataSource<T>: NSObject, UITableViewDataSource {
 
     // MARK: Instance Methods
 
+    /// Deletes the object at the given index path
+    ///
+    /// - Parameter indexPath: The index path of the object to delete.
+    func delete(indexPath: IndexPath) {
+        var section = sectionArray(indexPath)
+        section.remove(at: indexPath.row)
+        objects[indexPath.section] = section
+    }
+
+    /// Inserts the given object at the specified index.
+    ///
+    /// - Parameters:
+    ///   - object: The object to be inserted into the array
+    ///   - indexPath: The index path to insert the item at.
+    func insert(object: T, at indexPath: IndexPath) {
+        var section = sectionArray(indexPath)
+        section.insert(object, at: indexPath.row)
+        objects[indexPath.section] = section
+    }
+
     /// Returns the object at the provided index path.
     ///
     /// - Parameter indexPath: The index path of the object to retrieve.

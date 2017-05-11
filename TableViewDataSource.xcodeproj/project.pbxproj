@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		144E685C1EC4A70A00737204 /* EditableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144E685A1EC4A70A00737204 /* EditableViewController.swift */; };
+		144E685D1EC4A70A00737204 /* EditableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 144E685B1EC4A70A00737204 /* EditableViewController.xib */; };
 		C51379CA1E8DD90C00E1BB01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51379C21E8DD90C00E1BB01 /* AppDelegate.swift */; };
 		C51379CB1E8DD90C00E1BB01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C51379C31E8DD90C00E1BB01 /* Assets.xcassets */; };
 		C51379CD1E8DD90C00E1BB01 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51379C61E8DD90C00E1BB01 /* TableViewDataSource.swift */; };
@@ -32,6 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		144E685A1EC4A70A00737204 /* EditableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditableViewController.swift; sourceTree = "<group>"; };
+		144E685B1EC4A70A00737204 /* EditableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditableViewController.xib; sourceTree = "<group>"; };
 		C51379961E8DBCE500E1BB01 /* TableViewDataSource.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableViewDataSource.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C51379AA1E8DBCE500E1BB01 /* TableViewDataSourceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TableViewDataSourceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C51379B01E8DBCE500E1BB01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -129,6 +133,8 @@
 		C51379C71E8DD90C00E1BB01 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				144E685A1EC4A70A00737204 /* EditableViewController.swift */,
+				144E685B1EC4A70A00737204 /* EditableViewController.xib */,
 				C51379DF1E8DF2B400E1BB01 /* HomeViewController.swift */,
 				C51379E01E8DF2B400E1BB01 /* HomeViewController.xib */,
 				C51379E31E8DF54400E1BB01 /* MultiSectionViewController.swift */,
@@ -243,6 +249,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				144E685D1EC4A70A00737204 /* EditableViewController.xib in Resources */,
 				C51379CF1E8DD90C00E1BB01 /* SingleSectionViewController.xib in Resources */,
 				C51379CB1E8DD90C00E1BB01 /* Assets.xcassets in Resources */,
 				C51379E61E8DF54400E1BB01 /* MultiSectionViewController.xib in Resources */,
@@ -287,6 +294,7 @@
 				C51379CD1E8DD90C00E1BB01 /* TableViewDataSource.swift in Sources */,
 				C51379CA1E8DD90C00E1BB01 /* AppDelegate.swift in Sources */,
 				C51379E11E8DF2B400E1BB01 /* HomeViewController.swift in Sources */,
+				144E685C1EC4A70A00737204 /* EditableViewController.swift in Sources */,
 				C51379E51E8DF54400E1BB01 /* MultiSectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

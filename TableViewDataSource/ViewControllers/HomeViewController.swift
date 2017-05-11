@@ -10,14 +10,15 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
-    struct Selection {
-        let title: String
-        let viewController: UIViewController
+    enum Rows: String {
+        case singleSection = "Single Section Table View"
+        case multiSection = "Multiple Section Table View"
+        case editable = "Editable Table View"
     }
 
     @IBOutlet var tableView: UITableView!
 
-    var dataSource: TableViewDataSource<Selection>?
+    var dataSource: TableViewDataSource<Rows>?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +26,11 @@ class HomeViewController: UIViewController {
         let reuseId = "HomeViewControllerReuseId"
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseId)
 
-        let array = [Selection(title: "Single Section", viewController: SingleSectionViewController()),
-                     Selection(title: "Multiple Sections", viewController: MultiSectionViewController())]
+        let array: [Rows] = [
+            .singleSection,
+            .multiSection,
+            .editable,
+        ]
         dataSource = TableViewDataSource(objects: array, cellReuseId: reuseId)
         tableView.dataSource = dataSource
     }
@@ -38,12 +42,25 @@ extension HomeViewController: UITableViewDelegate {
             return
         }
 
-        navigationController?.pushViewController(object.viewController, animated: true)
+        let viewController: UIViewController?
+
+        switch object {
+        case .editable:
+            viewController = EditableViewController()
+        case .multiSection:
+            viewController = MultiSectionViewController()
+        case .singleSection:
+            viewController = SingleSectionViewController()
+        }
+
+        if let viewController = viewController {
+            navigationController?.pushViewController(viewController, animated: true)
+        }
     }
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let object = dataSource?.object(indexPath)
 
-        cell.textLabel?.text = object?.title
+        cell.textLabel?.text = object?.rawValue
     }
 }
