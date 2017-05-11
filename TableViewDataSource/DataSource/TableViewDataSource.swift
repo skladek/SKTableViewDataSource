@@ -49,7 +49,7 @@ class TableViewDataSource<T>: NSObject, UITableViewDataSource {
     // MARK: Public Variables
 
     /// The object that acts as the delegate to the data source.
-    var delegate: TableViewDataSourceDelegate?
+    weak var delegate: TableViewDataSourceDelegate?
 
     /// An array of titles for the footer sections.
     var footerTitles: [String]?
