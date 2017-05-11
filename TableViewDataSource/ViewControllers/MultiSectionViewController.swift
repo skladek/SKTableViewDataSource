@@ -21,7 +21,9 @@ class MultiSectionViewController: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseId)
 
         let array = [["One", "Two", "Three"], ["Four", "Five", "Six"], ["Seven", "Eight", "Nine", "Ten"]]
+        let headerTitles = ["Section One", "Section Two", "Section Three"]
         dataSource = TableViewDataSource(objects: array, cellReuseId: reuseId)
+        dataSource?.headerTitles = headerTitles
         tableView.dataSource = dataSource
     }
 }

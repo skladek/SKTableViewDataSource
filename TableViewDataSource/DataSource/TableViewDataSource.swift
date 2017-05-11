@@ -8,13 +8,32 @@
 
 import UIKit
 
+@objc
+protocol TableViewDataSourceDelegate {
+    @objc
+    optional func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String?
+
+    @objc
+    optional func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+}
+
 class TableViewDataSource<T>: NSObject, UITableViewDataSource {
-    /// The reuse id of the cell in the table view.
-    let reuseId: String
+
+    // MARK: Public Variables
+
+    var delegate: TableViewDataSourceDelegate?
+
+    var footerTitles: [String]?
+
+    var headerTitles: [String]?
 
     /// The objects array backing the table view.
     var objects: [[T]]
 
+    // MARK: Private Variables
+
+    /// The reuse id of the cell in the table view.
+    private let reuseId: String
 
     /// Initializes a data source with an objects array
     ///
@@ -70,5 +89,29 @@ class TableViewDataSource<T>: NSObject, UITableViewDataSource {
         let section = sectionArray(indexPath)
 
         return section.count
+    }
+
+    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        var footerTitle: String?
+
+        if let title = delegate?.tableView?(tableView, titleForFooterInSection: section) {
+            footerTitle = title
+        } else if section < (footerTitles?.count ?? 0) {
+            footerTitle = footerTitles?[section]
+        }
+
+        return footerTitle
+    }
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        var headerTitle: String?
+
+        if let title = delegate?.tableView?(tableView, titleForHeaderInSection: section) {
+            headerTitle = title
+        } else if section < (headerTitles?.count ?? 0) {
+            headerTitle = headerTitles?[section]
+        }
+
+        return headerTitle
     }
 }
