@@ -11,6 +11,9 @@ import UIKit
 @objc
 protocol TableViewDataSourceDelegate {
     @objc
+    optional func numberOfSections(in tableView: UITableView) -> Int
+
+    @objc
     optional func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
 
     @objc
@@ -24,6 +27,9 @@ protocol TableViewDataSourceDelegate {
 
     @objc
     optional func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath)
+
+    @objc
+    optional func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
 
     @objc
     optional func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String?
@@ -124,6 +130,10 @@ class TableViewDataSource<T>: NSObject, UITableViewDataSource {
     // MARK: UITableViewDataSource Methods
 
     func numberOfSections(in tableView: UITableView) -> Int {
+        if let sections = delegate?.numberOfSections?(in: tableView) {
+            return sections
+        }
+
         return objects.count
     }
 
@@ -152,6 +162,10 @@ class TableViewDataSource<T>: NSObject, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let rows = delegate?.tableView?(tableView, numberOfRowsInSection: section) {
+            return rows
+        }
+
         let indexPath = IndexPath(row: 0, section: section)
         let section = sectionArray(indexPath)
 

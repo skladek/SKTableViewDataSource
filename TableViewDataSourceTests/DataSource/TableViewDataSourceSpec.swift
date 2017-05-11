@@ -115,8 +115,15 @@ class TableViewDataSourceSpec: QuickSpec {
                     self.unitUnderTest = TableViewDataSource(objects: objects, cellReuseId: self.reuseId)
                 }
 
-                it("Should return 2") {
+                it("Should return 2 if there is no delegate set") {
                     expect(self.unitUnderTest.numberOfSections(in: UITableView())).to(equal(2))
+                }
+
+                it("Should return the value from the delegate if the delegate provides one.") {
+                    let delegate = MockTableViewDataSourceDelegate()
+                    self.unitUnderTest.delegate = delegate
+
+                    expect(self.unitUnderTest.numberOfSections(in: UITableView())).to(equal(3))
                 }
             }
 
@@ -127,15 +134,22 @@ class TableViewDataSourceSpec: QuickSpec {
                     self.unitUnderTest = TableViewDataSource(objects: objects, cellReuseId: self.reuseId)
                 }
 
-                it("Should return 2") {
+                it("Should return 2 if there is no delegate set.") {
                     expect(self.unitUnderTest.tableView(UITableView(), numberOfRowsInSection: 1)).to(equal(2))
+                }
+
+                it("Should return the value from the delegate if the delegate provides one.") {
+                    let delegate = MockTableViewDataSourceDelegate()
+                    self.unitUnderTest.delegate = delegate
+
+                    expect(self.unitUnderTest.tableView(UITableView(), numberOfRowsInSection: 1)).to(equal(4))
                 }
             }
 
             context("tableView(_:canEditRowAt:)") {
                 var delegate: MockTableViewDataSourceDelegate!
                 var indexPath: IndexPath!
-                let objects = [["S0R0", "S0R1", "S0R2"], ["S1R0", "S1R1"]]
+                let objects = [["S0R0", "S0R1", "S0R2"], ["S1R0", "S1R1", "S1R2"]]
                 var tableView: UITableView!
                 
                 beforeEach {
@@ -158,7 +172,7 @@ class TableViewDataSourceSpec: QuickSpec {
             context("tableView(_:canMoveRowAt:)") {
                 var delegate: MockTableViewDataSourceDelegate!
                 var indexPath: IndexPath!
-                let objects = [["S0R0", "S0R1", "S0R2"], ["S1R0", "S1R1"]]
+                let objects = [["S0R0", "S0R1", "S0R2"], ["S1R0", "S1R1", "S1R2"]]
                 var tableView: UITableView!
 
                 beforeEach {
@@ -181,7 +195,7 @@ class TableViewDataSourceSpec: QuickSpec {
             context("tableView(_:cellForRowAt:)") {
                 var delegate: MockTableViewDataSourceDelegate!
                 var indexPath: IndexPath!
-                let objects = [["S0R0", "S0R1", "S0R2"], ["S1R0", "S1R1"]]
+                let objects = [["S0R0", "S0R1", "S0R2"], ["S1R0", "S1R1", "S1R2"]]
                 var tableView: UITableView!
 
                 beforeEach {
@@ -215,7 +229,7 @@ class TableViewDataSourceSpec: QuickSpec {
             context("func tableView(_:commit:forRowAt:)") {
                 var delegate: MockTableViewDataSourceDelegate!
                 var indexPath: IndexPath!
-                let objects = [["S0R0", "S0R1", "S0R2"], ["S1R0", "S1R1"]]
+                let objects = [["S0R0", "S0R1", "S0R2"], ["S1R0", "S1R1", "S1R2"]]
                 var tableView: UITableView!
 
                 beforeEach {
@@ -237,7 +251,7 @@ class TableViewDataSourceSpec: QuickSpec {
             context("func tableView(_:moveRowAt:to:)") {
                 var delegate: MockTableViewDataSourceDelegate!
                 var indexPath: IndexPath!
-                let objects = [["S0R0", "S0R1", "S0R2"], ["S1R0", "S1R1"]]
+                let objects = [["S0R0", "S0R1", "S0R2"], ["S1R0", "S1R1", "S1R2"]]
                 var tableView: UITableView!
 
                 beforeEach {
@@ -259,7 +273,7 @@ class TableViewDataSourceSpec: QuickSpec {
             context("func tableView(_:titleForFooterInSection:)") {
                 var delegate: MockTableViewDataSourceDelegate!
                 let footers = ["section0Footer", "section1Footer"]
-                let objects = [["S0R0", "S0R1", "S0R2"], ["S1R0", "S1R1"]]
+                let objects = [["S0R0", "S0R1", "S0R2"], ["S1R0", "S1R1", "S1R2"]]
                 var tableView: UITableView!
 
                 beforeEach {
@@ -299,7 +313,7 @@ class TableViewDataSourceSpec: QuickSpec {
             context("func tableView(_:titleForHeaderInSection:)") {
                 var delegate: MockTableViewDataSourceDelegate!
                 let headers = ["section0Header", "section1Header"]
-                let objects = [["S0R0", "S0R1", "S0R2"], ["S1R0", "S1R1"]]
+                let objects = [["S0R0", "S0R1", "S0R2"], ["S1R0", "S1R1", "S1R2"]]
                 var tableView: UITableView!
 
                 beforeEach {

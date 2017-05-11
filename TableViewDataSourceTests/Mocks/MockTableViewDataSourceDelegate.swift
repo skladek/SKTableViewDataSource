@@ -22,6 +22,10 @@ class MockTableViewDataSourceDelegate {
 }
 
 extension MockTableViewDataSourceDelegate: TableViewDataSourceDelegate {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 3
+    }
+
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return false
     }
@@ -40,6 +44,10 @@ extension MockTableViewDataSourceDelegate: TableViewDataSourceDelegate {
 
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         moveRowAtCalled = true
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
     }
 
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
