@@ -25,10 +25,6 @@ class TableViewDataSourceSpec: QuickSpec {
                 self.unitUnderTest = TableViewDataSource(objects: objects, cellReuseId: self.reuseId)
             }
 
-            it("Should set the reuse id") {
-                expect(self.unitUnderTest.reuseId).to(equal(self.reuseId))
-            }
-
             it("Should wrap the objects array in an array and set to objects") {
                 expect(self.unitUnderTest.objects.first).to(equal(objects))
             }
@@ -39,10 +35,6 @@ class TableViewDataSourceSpec: QuickSpec {
 
             beforeEach() {
                 self.unitUnderTest = TableViewDataSource(objects: objects, cellReuseId: self.reuseId)
-            }
-
-            it("Should set the reuse id") {
-                expect(self.unitUnderTest.reuseId).to(equal(self.reuseId))
             }
 
             it("Should set the objects array") {
