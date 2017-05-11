@@ -24,10 +24,13 @@ class TableViewDataSource<T>: NSObject, UITableViewDataSource {
 
     // MARK: Public Variables
 
+    /// The object that acts as the delegate to the data source.
     var delegate: TableViewDataSourceDelegate?
 
+    /// An array of titles for the footer sections.
     var footerTitles: [String]?
 
+    /// An array of titles for the header sections.
     var headerTitles: [String]?
 
     /// The objects array backing the table view.
@@ -35,8 +38,9 @@ class TableViewDataSource<T>: NSObject, UITableViewDataSource {
 
     // MARK: Private Variables
 
-    /// The reuse id of the cell in the table view.
     private let reuseId: String
+
+    // MARK: Initializers
 
     /// Initializes a data source with an objects array
     ///
@@ -46,7 +50,6 @@ class TableViewDataSource<T>: NSObject, UITableViewDataSource {
     convenience init(objects: [T], cellReuseId: String) {
         self.init(objects: [objects], cellReuseId: cellReuseId)
     }
-
 
     /// Initializes a data source with a 2 dimensional objects array
     ///
@@ -59,7 +62,6 @@ class TableViewDataSource<T>: NSObject, UITableViewDataSource {
     }
 
     // MARK: Instance Methods
-
 
     /// Returns the object at the provided index path.
     ///
