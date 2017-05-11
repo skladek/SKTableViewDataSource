@@ -43,6 +43,56 @@ class TableViewDataSourceSpec: QuickSpec {
             }
         }
 
+        context("delete(indexPath:)") {
+            let objects = [["S0R0", "S0R1", "S0R2"], ["S1R0", "S1R1", "S1R2"]]
+
+            beforeEach {
+                self.unitUnderTest = TableViewDataSource(objects: objects, cellReuseId: self.reuseId)
+            }
+
+            it("Should delete the object at the specified index path") {
+                self.unitUnderTest.delete(indexPath: IndexPath(row: 1, section: 1))
+                let sectionArray = self.unitUnderTest.objects[1]
+
+                expect(sectionArray).to(equal(["S1R0", "S1R2"]))
+            }
+        }
+
+        context("insert(_:indexPath:)") {
+            let objects = [["S0R0", "S0R1", "S0R2"], ["S1R0", "S1R1", "S1R2"]]
+
+            beforeEach {
+                self.unitUnderTest = TableViewDataSource(objects: objects, cellReuseId: self.reuseId)
+            }
+
+            it("Should insert the given object at the specified index path") {
+                let object = "insertedObject"
+                self.unitUnderTest.insert(object: object, at: IndexPath(row: 1, section: 1))
+                let sectionArray = self.unitUnderTest.objects[1]
+
+                expect(sectionArray).to(equal(["S1R0", "insertedObject", "S1R1", "S1R2"]))
+            }
+        }
+
+        context("moveFrom(_:to:)") {
+            let objects = [["S0R0", "S0R1", "S0R2"], ["S1R0", "S1R1", "S1R2"]]
+
+            beforeEach {
+                self.unitUnderTest = TableViewDataSource(objects: objects, cellReuseId: self.reuseId)
+            }
+
+            it("Should move the object at the from index path to the to index path") {
+                let fromIndexPath = IndexPath(row: 1, section: 0)
+                let toIndexPath = IndexPath(row: 2, section: 1)
+                self.unitUnderTest.moveFrom(fromIndexPath, to: toIndexPath)
+                let sectionZero = self.unitUnderTest.objects[0]
+                let sectionOne = self.unitUnderTest.objects[1]
+
+                expect(sectionZero).to(equal(["S0R0", "S0R2"]))
+                expect(sectionOne).to(equal(["S1R0", "S1R1", "S0R1", "S1R2"]))
+            }
+        }
+
         context("object(indexPath:)") {
             let objects = [["S0R0", "S0R1", "S0R2"], ["S1R0", "S1R1", "S1R2"]]
 
