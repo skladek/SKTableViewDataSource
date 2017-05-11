@@ -11,7 +11,13 @@ import UIKit
 @objc
 protocol TableViewDataSourceDelegate {
     @objc
+    optional func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
+
+    @objc
     optional func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+
+    @objc
+    optional func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)
 
     @objc
     optional func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String?
@@ -85,12 +91,20 @@ class TableViewDataSource<T>: NSObject, UITableViewDataSource {
         return objects.count
     }
 
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return delegate?.tableView?(tableView, canEditRowAt: indexPath) ?? true
+    }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = delegate?.tableView?(tableView, cellForRowAt: indexPath) {
             return cell
         }
 
         return tableView.dequeueReusableCell(withIdentifier: reuseId, for: indexPath)
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        delegate?.tableView?(tableView, commit: editingStyle, forRowAt: indexPath)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
