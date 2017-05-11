@@ -11,6 +11,9 @@ import UIKit
 @objc
 protocol TableViewDataSourceDelegate {
     @objc
+    optional func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+
+    @objc
     optional func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String?
 
     @objc
@@ -81,6 +84,10 @@ class TableViewDataSource<T>: NSObject, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = delegate?.tableView?(tableView, cellForRowAt: indexPath) {
+            return cell
+        }
+
         return tableView.dequeueReusableCell(withIdentifier: reuseId, for: indexPath)
     }
 
