@@ -32,6 +32,12 @@ protocol TableViewDataSourceDelegate {
     optional func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
 
     @objc
+    optional func sectionIndexTitles(for tableView: UITableView) -> [String]?
+
+    @objc
+    optional func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int
+
+    @objc
     optional func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String?
 
     @objc
@@ -137,6 +143,10 @@ class TableViewDataSource<T>: NSObject, UITableViewDataSource {
         return objects.count
     }
 
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return delegate?.sectionIndexTitles?(for: tableView)
+    }
+
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return delegate?.tableView?(tableView, canEditRowAt: indexPath) ?? true
     }
@@ -170,6 +180,10 @@ class TableViewDataSource<T>: NSObject, UITableViewDataSource {
         let section = sectionArray(indexPath)
 
         return section.count
+    }
+
+    func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
+        return delegate?.tableView?(tableView, sectionForSectionIndexTitle: title, at: index) ?? -1
     }
 
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {

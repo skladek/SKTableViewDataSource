@@ -127,6 +127,25 @@ class TableViewDataSourceSpec: QuickSpec {
                 }
             }
 
+            context("sectionIndexTitles(for:)") {
+                beforeEach {
+                    self.unitUnderTest = TableViewDataSource(objects: [""], cellReuseId: self.reuseId)
+                }
+
+                it("should return the value from the delegate if the delegate provides one.") {
+                    let delegate = MockTableViewDataSourceDelegate()
+                    self.unitUnderTest.delegate = delegate
+                    let indexTitles = self.unitUnderTest.sectionIndexTitles(for: UITableView())
+
+                    expect(indexTitles?.count).to(equal(1))
+                    expect(indexTitles?.first).to(equal("testSectionIndexTitle"))
+                }
+
+                it("should return nil if there is no delegate") {
+                    expect(self.unitUnderTest.sectionIndexTitles(for: UITableView())).to(beNil())
+                }
+            }
+
             context("tableView(_:numberOfRowsInSection:)") {
                 let objects = [["S0R0", "S0R1", "S0R2"], ["S1R0", "S1R1"]]
 
@@ -226,7 +245,7 @@ class TableViewDataSourceSpec: QuickSpec {
                 }
             }
 
-            context("func tableView(_:commit:forRowAt:)") {
+            context("tableView(_:commit:forRowAt:)") {
                 var delegate: MockTableViewDataSourceDelegate!
                 var indexPath: IndexPath!
                 let objects = [["S0R0", "S0R1", "S0R2"], ["S1R0", "S1R1", "S1R2"]]
@@ -248,7 +267,7 @@ class TableViewDataSourceSpec: QuickSpec {
                 }
             }
 
-            context("func tableView(_:moveRowAt:to:)") {
+            context("tableView(_:moveRowAt:to:)") {
                 var delegate: MockTableViewDataSourceDelegate!
                 var indexPath: IndexPath!
                 let objects = [["S0R0", "S0R1", "S0R2"], ["S1R0", "S1R1", "S1R2"]]
@@ -270,7 +289,24 @@ class TableViewDataSourceSpec: QuickSpec {
                 }
             }
 
-            context("func tableView(_:titleForFooterInSection:)") {
+            context("tableView(_:sectionForSectionIndexTitle:index:)") {
+                beforeEach {
+                    self.unitUnderTest = TableViewDataSource(objects: [""], cellReuseId: self.reuseId)
+                }
+
+                it("should return the delegate value if there is a delegate") {
+                    let delegate = MockTableViewDataSourceDelegate()
+                    self.unitUnderTest.delegate = delegate
+
+                    expect(self.unitUnderTest.tableView(UITableView(), sectionForSectionIndexTitle: "", at: 0)).to(equal(1))
+                }
+
+                it("should return the default value if there is no delegate") {
+                    expect(self.unitUnderTest.tableView(UITableView(), sectionForSectionIndexTitle: "", at: 0)).to(equal(-1))
+                }
+            }
+
+            context("tableView(_:titleForFooterInSection:)") {
                 var delegate: MockTableViewDataSourceDelegate!
                 let footers = ["section0Footer", "section1Footer"]
                 let objects = [["S0R0", "S0R1", "S0R2"], ["S1R0", "S1R1", "S1R2"]]
@@ -310,7 +346,7 @@ class TableViewDataSourceSpec: QuickSpec {
                 }
             }
 
-            context("func tableView(_:titleForHeaderInSection:)") {
+            context("tableView(_:titleForHeaderInSection:)") {
                 var delegate: MockTableViewDataSourceDelegate!
                 let headers = ["section0Header", "section1Header"]
                 let objects = [["S0R0", "S0R1", "S0R2"], ["S1R0", "S1R1", "S1R2"]]
