@@ -47,6 +47,10 @@ extension EditableViewController: TableViewDataSourceDelegate {
         return indexPath.row < 5
     }
 
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return indexPath.row < 8
+    }
+
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle != .delete {
             return
@@ -54,5 +58,9 @@ extension EditableViewController: TableViewDataSourceDelegate {
 
         dataSource?.delete(indexPath: indexPath)
         tableView.deleteRows(at: [indexPath], with: .automatic)
+    }
+
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        dataSource?.moveFrom(sourceIndexPath, to: destinationIndexPath)
     }
 }

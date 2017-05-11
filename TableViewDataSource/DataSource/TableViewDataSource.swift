@@ -14,10 +14,16 @@ protocol TableViewDataSourceDelegate {
     optional func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
 
     @objc
+    optional func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool
+
+    @objc
     optional func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
 
     @objc
     optional func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)
+
+    @objc
+    optional func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath)
 
     @objc
     optional func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String?
@@ -89,6 +95,17 @@ class TableViewDataSource<T>: NSObject, UITableViewDataSource {
         objects[indexPath.section] = section
     }
 
+    /// Moves the object at the source index path to the destination index path.
+    ///
+    /// - Parameters:
+    ///   - sourceIndexPath: The current index path of the object.
+    ///   - destinationIndexPath: The index path where the object should be after the move.
+    func moveFrom(_ sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let movedObject = object(sourceIndexPath)
+        delete(indexPath: sourceIndexPath)
+        insert(object: movedObject, at: destinationIndexPath)
+    }
+
     /// Returns the object at the provided index path.
     ///
     /// - Parameter indexPath: The index path of the object to retrieve.
@@ -115,6 +132,10 @@ class TableViewDataSource<T>: NSObject, UITableViewDataSource {
         return delegate?.tableView?(tableView, canEditRowAt: indexPath) ?? true
     }
 
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return delegate?.tableView?(tableView, canMoveRowAt: indexPath) ?? true
+    }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = delegate?.tableView?(tableView, cellForRowAt: indexPath) {
             return cell
@@ -125,6 +146,10 @@ class TableViewDataSource<T>: NSObject, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         delegate?.tableView?(tableView, commit: editingStyle, forRowAt: indexPath)
+    }
+
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        delegate?.tableView?(tableView, moveRowAt: sourceIndexPath, to: destinationIndexPath)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
