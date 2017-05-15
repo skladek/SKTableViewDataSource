@@ -46,7 +46,13 @@ protocol TableViewDataSourceDelegate {
 
 class TableViewDataSource<T>: NSObject, UITableViewDataSource {
 
+    // MARK: Class Types
+
+    typealias CellPresenter = (_ cell: UITableViewCell, _ object: T) -> ()
+
     // MARK: Public Variables
+
+    let cellPresenter: CellPresenter?
 
     /// The object that acts as the delegate to the data source.
     weak var delegate: TableViewDataSourceDelegate?
@@ -70,8 +76,8 @@ class TableViewDataSource<T>: NSObject, UITableViewDataSource {
     /// - Parameters:
     ///   - objects: The array of objects to be displayed in the table view.
     ///   - cellReuseId: The reuse id of the cell in the table view.
-    convenience init(objects: [T], cellReuseId: String) {
-        self.init(objects: [objects], cellReuseId: cellReuseId)
+    convenience init(objects: [T], cellReuseId: String, cellPresenter: CellPresenter? = nil) {
+        self.init(objects: [objects], cellReuseId: cellReuseId, cellPresenter: cellPresenter)
     }
 
     /// Initializes a data source with a 2 dimensional objects array
@@ -79,7 +85,8 @@ class TableViewDataSource<T>: NSObject, UITableViewDataSource {
     /// - Parameters:
     ///   - objects: The array of objects to be displayed in the table view. The table view will for groups based on the sub arrays.
     ///   - cellReuseId: The reuse id of the cell in the table view.
-    init(objects: [[T]], cellReuseId: String) {
+    init(objects: [[T]], cellReuseId: String, cellPresenter: CellPresenter? = nil) {
+        self.cellPresenter = cellPresenter
         self.objects = objects
         self.reuseId = cellReuseId
     }
@@ -160,7 +167,12 @@ class TableViewDataSource<T>: NSObject, UITableViewDataSource {
             return cell
         }
 
-        return tableView.dequeueReusableCell(withIdentifier: reuseId, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseId, for: indexPath)
+
+        let object = self.object(indexPath)
+        cellPresenter?(cell, object)
+
+        return cell
     }
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {

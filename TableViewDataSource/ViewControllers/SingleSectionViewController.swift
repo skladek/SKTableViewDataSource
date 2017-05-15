@@ -21,15 +21,10 @@ class SingleSectionViewController: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseId)
 
         let array = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"]
-        dataSource = TableViewDataSource(objects: array, cellReuseId: reuseId)
+
+        dataSource = TableViewDataSource(objects: array, cellReuseId: reuseId, cellPresenter: { (cell, object) in
+            cell.textLabel?.text = object
+        })
         tableView.dataSource = dataSource
-    }
-}
-
-extension SingleSectionViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let object = dataSource?.object(indexPath)
-
-        cell.textLabel?.text = object
     }
 }
