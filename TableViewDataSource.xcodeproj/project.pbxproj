@@ -10,13 +10,13 @@
 		144E685C1EC4A70A00737204 /* EditableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144E685A1EC4A70A00737204 /* EditableViewController.swift */; };
 		144E685D1EC4A70A00737204 /* EditableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 144E685B1EC4A70A00737204 /* EditableViewController.xib */; };
 		144E68601EC4D2A800737204 /* MockTableViewDataSourceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144E685F1EC4D2A800737204 /* MockTableViewDataSourceDelegate.swift */; };
+		14F21D8A1EC64FAB000E0431 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C51379D11E8DE98500E1BB01 /* Nimble.framework */; };
+		14F21D8B1EC64FAB000E0431 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C51379D21E8DE98500E1BB01 /* Quick.framework */; };
 		C51379CA1E8DD90C00E1BB01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51379C21E8DD90C00E1BB01 /* AppDelegate.swift */; };
 		C51379CB1E8DD90C00E1BB01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C51379C31E8DD90C00E1BB01 /* Assets.xcassets */; };
 		C51379CD1E8DD90C00E1BB01 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51379C61E8DD90C00E1BB01 /* TableViewDataSource.swift */; };
 		C51379CE1E8DD90C00E1BB01 /* SingleSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51379C81E8DD90C00E1BB01 /* SingleSectionViewController.swift */; };
 		C51379CF1E8DD90C00E1BB01 /* SingleSectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C51379C91E8DD90C00E1BB01 /* SingleSectionViewController.xib */; };
-		C51379D81E8DEA9400E1BB01 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C51379D11E8DE98500E1BB01 /* Nimble.framework */; };
-		C51379D91E8DEA9700E1BB01 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C51379D21E8DE98500E1BB01 /* Quick.framework */; };
 		C51379DC1E8DED3A00E1BB01 /* TableViewDataSourceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51379DB1E8DED3A00E1BB01 /* TableViewDataSourceSpec.swift */; };
 		C51379E11E8DF2B400E1BB01 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51379DF1E8DF2B400E1BB01 /* HomeViewController.swift */; };
 		C51379E21E8DF2B400E1BB01 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C51379E01E8DF2B400E1BB01 /* HomeViewController.xib */; };
@@ -68,8 +68,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C51379D91E8DEA9700E1BB01 /* Quick.framework in Frameworks */,
-				C51379D81E8DEA9400E1BB01 /* Nimble.framework in Frameworks */,
+				14F21D8B1EC64FAB000E0431 /* Quick.framework in Frameworks */,
+				14F21D8A1EC64FAB000E0431 /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

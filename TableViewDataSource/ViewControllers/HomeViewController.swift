@@ -24,6 +24,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
 
         let reuseId = "HomeViewControllerReuseId"
+
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseId)
 
         let array: [Rows] = [
@@ -31,7 +32,11 @@ class HomeViewController: UIViewController {
             .multiSection,
             .editable,
         ]
-        dataSource = TableViewDataSource(objects: array, cellReuseId: reuseId)
+
+        dataSource = TableViewDataSource(objects: array, cellReuseId: reuseId, cellPresenter: { (cell, object) in
+            cell.textLabel?.text = object.rawValue
+        })
+
         tableView.dataSource = dataSource
     }
 }
@@ -56,11 +61,5 @@ extension HomeViewController: UITableViewDelegate {
         if let viewController = viewController {
             navigationController?.pushViewController(viewController, animated: true)
         }
-    }
-
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let object = dataSource?.object(indexPath)
-
-        cell.textLabel?.text = object?.rawValue
     }
 }
