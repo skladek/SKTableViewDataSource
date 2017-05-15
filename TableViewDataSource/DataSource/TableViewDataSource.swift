@@ -159,7 +159,7 @@ class TableViewDataSource<T>: NSObject, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return delegate?.tableView?(tableView, canEditRowAt: indexPath) ?? true
+        return delegate?.tableView?(tableView, canEditRowAt: indexPath) ?? false
     }
 
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
