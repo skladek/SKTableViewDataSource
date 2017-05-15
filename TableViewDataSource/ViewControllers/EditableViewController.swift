@@ -25,7 +25,10 @@ class EditableViewController: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseId)
 
         let array = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"]
-        dataSource = TableViewDataSource(objects: array, cellReuseId: reuseId)
+        dataSource = TableViewDataSource(objects: array, cellReuseId: reuseId, cellPresenter: { (cell, object) in
+            cell.textLabel?.text = object
+        })
+
         dataSource?.delegate = self
         tableView.dataSource = dataSource
 
@@ -34,23 +37,7 @@ class EditableViewController: UIViewController {
     }
 }
 
-extension EditableViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let object = dataSource?.object(indexPath)
-
-        cell.textLabel?.text = object
-    }
-}
-
 extension EditableViewController: TableViewDataSourceDelegate {
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return indexPath.row < 5
-    }
-
-    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        return indexPath.row < 8
-    }
-
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle != .delete {
             return
