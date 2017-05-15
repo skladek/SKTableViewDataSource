@@ -243,6 +243,28 @@ class TableViewDataSourceSpec: QuickSpec {
                 it("should return a cell from the table view if the delegate is not set") {
                     expect(self.unitUnderTest.tableView(tableView, cellForRowAt: indexPath).reuseIdentifier).to(equal(self.reuseId))
                 }
+
+                it("should pass the cell to the presenter if available") {
+                    self.unitUnderTest = TableViewDataSource(objects: objects, cellReuseId: self.reuseId, cellPresenter: { (cell, object) in
+                        expect(cell).toNot(beNil())
+                    })
+
+                    delegate.shouldReturnCell = false
+                    self.unitUnderTest.delegate = delegate
+                    tableView.dataSource = self.unitUnderTest
+                    let _ = self.unitUnderTest.tableView(tableView, cellForRowAt: indexPath)
+                }
+
+                it("should pass the object to the presenter if available") {
+                    self.unitUnderTest = TableViewDataSource(objects: objects, cellReuseId: self.reuseId, cellPresenter: { (cell, object) in
+                        expect(object).to(equal("S0R0"))
+                    })
+
+                    delegate.shouldReturnCell = false
+                    self.unitUnderTest.delegate = delegate
+                    tableView.dataSource = self.unitUnderTest
+                    let _ = self.unitUnderTest.tableView(tableView, cellForRowAt: indexPath)
+                }
             }
 
             context("tableView(_:commit:forRowAt:)") {
