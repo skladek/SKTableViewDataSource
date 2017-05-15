@@ -48,11 +48,10 @@ class TableViewDataSource<T>: NSObject, UITableViewDataSource {
 
     // MARK: Class Types
 
+    /// A closure to allow the presenter logic to be injected on init.
     typealias CellPresenter = (_ cell: UITableViewCell, _ object: T) -> ()
 
     // MARK: Public Variables
-
-    let cellPresenter: CellPresenter?
 
     /// The object that acts as the delegate to the data source.
     weak var delegate: TableViewDataSourceDelegate?
@@ -68,6 +67,11 @@ class TableViewDataSource<T>: NSObject, UITableViewDataSource {
 
     /// The cell reuse identifier
     let reuseId: String
+
+    // MARK: Private variables
+
+    /// The presenter logic.
+    fileprivate let cellPresenter: CellPresenter?
 
     // MARK: Initializers
 
