@@ -20,8 +20,18 @@ class MultiSectionViewController: UIViewController {
         let reuseId = "MultiSectionViewControllerReuseId"
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseId)
 
-        let array = [["One", "Two", "Three"], ["Four", "Five", "Six"], ["Seven", "Eight", "Nine", "Ten"]]
-        let headerTitles = ["Section One", "Section Two", "Section Three"]
+        let array = [["Alaska", "Alabama", "Arkansas", "American Samoa", "Arizona"], ["California", "Colorado", "Connecticut"], ["District of Columbia", "Delaware"], ["Florida"], ["Georgia", "Guam"], ["Hawaii"], ["Iowa", "Idaho", "Illinois", "Indiana"], ["Kansas", "Kentucky"], ["Louisiana"], ["Massachusetts", "Maryland", "Maine", "Michigan", "Minnesota", "Missouri", "Mississippi", "Montana"], ["North Carolina", "North Dakota", "Nebraska", "New Hampshire", "New Jersey", "New Mexico", "Nevada", "New York"], ["Ohio", "Oklahoma", "Oregon"], ["Pennsylvania", "Puerto Rico"], ["Rhode Island"], ["South Carolina", "South Dakota"], ["Tennessee", "Texas"], ["Utah"], ["Virginia", "Virgin Islands", "Vermont"], ["Washington", "Wisconsin", "West Virginia", "Wyoming"]]
+
+        var headerTitles = [String]()
+
+        for sectionArray in array {
+            guard let firstWord = sectionArray.first else {
+                continue
+            }
+
+            let firstLetter = firstWord.substring(to: firstWord.index(firstWord.startIndex, offsetBy: 1))
+            headerTitles.append(firstLetter)
+        }
 
         dataSource = TableViewDataSource(objects: array, cellReuseId: reuseId, cellPresenter: { (cell, object) in
             cell.textLabel?.text = object
