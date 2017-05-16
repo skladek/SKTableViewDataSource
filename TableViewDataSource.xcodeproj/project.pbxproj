@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		144E685C1EC4A70A00737204 /* EditableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144E685A1EC4A70A00737204 /* EditableViewController.swift */; };
 		144E685D1EC4A70A00737204 /* EditableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 144E685B1EC4A70A00737204 /* EditableViewController.xib */; };
-		144E68601EC4D2A800737204 /* MockTableViewDataSourceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144E685F1EC4D2A800737204 /* MockTableViewDataSourceDelegate.swift */; };
 		14F21D8A1EC64FAB000E0431 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C51379D11E8DE98500E1BB01 /* Nimble.framework */; };
 		14F21D8B1EC64FAB000E0431 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C51379D21E8DE98500E1BB01 /* Quick.framework */; };
+		14F21E021ECB6EBA000E0431 /* MockTableViewDataSourceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F21E011ECB6EBA000E0431 /* MockTableViewDataSourceDelegate.swift */; };
 		C51379CA1E8DD90C00E1BB01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51379C21E8DD90C00E1BB01 /* AppDelegate.swift */; };
 		C51379CB1E8DD90C00E1BB01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C51379C31E8DD90C00E1BB01 /* Assets.xcassets */; };
 		C51379CD1E8DD90C00E1BB01 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51379C61E8DD90C00E1BB01 /* TableViewDataSource.swift */; };
@@ -37,7 +37,7 @@
 /* Begin PBXFileReference section */
 		144E685A1EC4A70A00737204 /* EditableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditableViewController.swift; sourceTree = "<group>"; };
 		144E685B1EC4A70A00737204 /* EditableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditableViewController.xib; sourceTree = "<group>"; };
-		144E685F1EC4D2A800737204 /* MockTableViewDataSourceDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MockTableViewDataSourceDelegate.swift; path = Mocks/MockTableViewDataSourceDelegate.swift; sourceTree = "<group>"; };
+		14F21E011ECB6EBA000E0431 /* MockTableViewDataSourceDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockTableViewDataSourceDelegate.swift; sourceTree = "<group>"; };
 		C51379961E8DBCE500E1BB01 /* TableViewDataSource.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableViewDataSource.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C51379AA1E8DBCE500E1BB01 /* TableViewDataSourceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TableViewDataSourceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C51379B01E8DBCE500E1BB01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -76,19 +76,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		144E685E1EC4D27C00737204 /* Mocks */ = {
-			isa = PBXGroup;
-			children = (
-				144E685F1EC4D2A800737204 /* MockTableViewDataSourceDelegate.swift */,
-			);
-			name = Mocks;
-			sourceTree = "<group>";
-		};
 		C513798D1E8DBCE500E1BB01 = {
 			isa = PBXGroup;
 			children = (
 				C51379981E8DBCE500E1BB01 /* TableViewDataSource */,
 				C51379AD1E8DBCE500E1BB01 /* TableViewDataSourceTests */,
+				C51379D51E8DE98C00E1BB01 /* Frameworks */,
 				C51379971E8DBCE500E1BB01 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -108,7 +101,6 @@
 				C51379C11E8DD90C00E1BB01 /* Application */,
 				C51379C51E8DD90C00E1BB01 /* DataSource */,
 				C51379C71E8DD90C00E1BB01 /* ViewControllers */,
-				C51379D51E8DE98C00E1BB01 /* Frameworks */,
 			);
 			path = TableViewDataSource;
 			sourceTree = "<group>";
@@ -116,7 +108,6 @@
 		C51379AD1E8DBCE500E1BB01 /* TableViewDataSourceTests */ = {
 			isa = PBXGroup;
 			children = (
-				144E685E1EC4D27C00737204 /* Mocks */,
 				C51379DA1E8DED3A00E1BB01 /* DataSource */,
 				C51379B01E8DBCE500E1BB01 /* Info.plist */,
 			);
@@ -163,11 +154,13 @@
 				C51379D21E8DE98500E1BB01 /* Quick.framework */,
 			);
 			name = Frameworks;
+			path = TableViewDataSource;
 			sourceTree = "<group>";
 		};
 		C51379DA1E8DED3A00E1BB01 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
+				14F21E011ECB6EBA000E0431 /* MockTableViewDataSourceDelegate.swift */,
 				C51379DB1E8DED3A00E1BB01 /* TableViewDataSourceSpec.swift */,
 			);
 			path = DataSource;
@@ -315,7 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C51379DC1E8DED3A00E1BB01 /* TableViewDataSourceSpec.swift in Sources */,
-				144E68601EC4D2A800737204 /* MockTableViewDataSourceDelegate.swift in Sources */,
+				14F21E021ECB6EBA000E0431 /* MockTableViewDataSourceDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

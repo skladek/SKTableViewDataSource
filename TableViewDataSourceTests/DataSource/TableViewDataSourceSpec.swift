@@ -42,6 +42,10 @@ class TableViewDataSourceSpec: QuickSpec {
                     expect(self.unitUnderTest.objects.first).to(equal(objects.first))
                     expect(self.unitUnderTest.objects.last).to(equal(objects.last))
                 }
+
+                it("Should set the reuse id") {
+                    expect(self.unitUnderTest.reuseId).to(equal(self.reuseId))
+                }
             }
 
             context("delete(indexPath:)") {
@@ -178,12 +182,18 @@ class TableViewDataSourceSpec: QuickSpec {
                     self.unitUnderTest = TableViewDataSource(objects: objects, cellReuseId: self.reuseId)
                 }
                 
-                it("should return the value from the delegate if one is set") {
+                it("should call the delegate if one is set") {
                     self.unitUnderTest.delegate = delegate
-                    expect(self.unitUnderTest.tableView(tableView, canEditRowAt: indexPath)).to(beFalse())
+                    let _ = self.unitUnderTest.tableView(tableView, canEditRowAt: indexPath)
+                    expect(delegate.canEditRowAtCalled).to(beTrue())
+                }
+
+                it("should prefer the value from the delegate if one is returned") {
+                    self.unitUnderTest.delegate = delegate
+                    expect(self.unitUnderTest.tableView(tableView, canEditRowAt: indexPath)).to(beTrue())
                 }
                 
-                it("should return the false if there is no delegate set") {
+                it("should return false if there is no delegate set") {
                     expect(self.unitUnderTest.tableView(tableView, canEditRowAt: indexPath)).to(beFalse())
                 }
             }
@@ -201,7 +211,13 @@ class TableViewDataSourceSpec: QuickSpec {
                     self.unitUnderTest = TableViewDataSource(objects: objects, cellReuseId: self.reuseId)
                 }
 
-                it("should return the value from the delegate if one is set") {
+                it("should call the delegate if one is set") {
+                    self.unitUnderTest.delegate = delegate
+                    let _ = self.unitUnderTest.tableView(tableView, canMoveRowAt: indexPath)
+                    expect(delegate.canMoveRowAtCalled).to(beTrue())
+                }
+
+                it("should prefer the value from the delegate if one is returned") {
                     self.unitUnderTest.delegate = delegate
                     expect(self.unitUnderTest.tableView(tableView, canMoveRowAt: indexPath)).to(beFalse())
                 }

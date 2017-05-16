@@ -12,6 +12,8 @@ import UIKit
 @testable import TableViewDataSource
 
 class MockTableViewDataSourceDelegate {
+    var canEditRowAtCalled = false
+    var canMoveRowAtCalled = false
     var commitEditingStyleCalled = false
     var moveRowAtCalled = false
     var shouldReturnCell = false
@@ -31,10 +33,12 @@ extension MockTableViewDataSourceDelegate: TableViewDataSourceDelegate {
     }
 
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return false
+        canEditRowAtCalled = true
+        return true
     }
 
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        canMoveRowAtCalled = true
         return false
     }
 
