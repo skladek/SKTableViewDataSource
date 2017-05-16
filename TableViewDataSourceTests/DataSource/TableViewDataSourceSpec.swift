@@ -183,8 +183,8 @@ class TableViewDataSourceSpec: QuickSpec {
                     expect(self.unitUnderTest.tableView(tableView, canEditRowAt: indexPath)).to(beFalse())
                 }
                 
-                it("should return the true if there is no delegate set") {
-                    expect(self.unitUnderTest.tableView(tableView, canEditRowAt: indexPath)).to(beTrue())
+                it("should return the false if there is no delegate set") {
+                    expect(self.unitUnderTest.tableView(tableView, canEditRowAt: indexPath)).to(beFalse())
                 }
             }
 
