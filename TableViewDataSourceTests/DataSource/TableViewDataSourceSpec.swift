@@ -423,6 +423,35 @@ class TableViewDataSourceSpec: QuickSpec {
                     expect(self.unitUnderTest.tableView(tableView, titleForFooterInSection: 0)).to(beNil())
                 }
             }
+
+            context("objects(_:)") {
+                it("Should set objects to an empty array if nil is passed in as a 2 dimensional array.") {
+                    let nilStringArray: [[String]]? = nil
+                    self.unitUnderTest.objects(nilStringArray)
+                    expect(self.unitUnderTest.objects.count).to(equal(0))
+                    expect(self.unitUnderTest.objects.count).toNot(beNil())
+                }
+
+                it("Should set the objects var to the passed in array") {
+                    let objects: [[String]] = [["One", "Two", "Three"], ["Three", "Four", "Five"]]
+                    self.unitUnderTest.objects(objects)
+                    expect(self.unitUnderTest.objects[0]).to(equal(objects[0]))
+                    expect(self.unitUnderTest.objects[1]).to(equal(objects[1]))
+                }
+
+                it("Should set objects to an empty array if nil is passed in as a 1 dimensional array.") {
+                    let nilStringArray: [String]? = nil
+                    self.unitUnderTest.objects(nilStringArray)
+                    expect(self.unitUnderTest.objects.count).to(equal(0))
+                    expect(self.unitUnderTest.objects.count).toNot(beNil())
+                }
+
+                it("Should wrap the array and set objects to a 2 dimensional array if a 1 dimensional array is passed in") {
+                    let objects: [String] = ["One", "Two", "Three"]
+                    self.unitUnderTest.objects(objects)
+                    expect(self.unitUnderTest.objects[0]).to(equal(objects))
+                }
+            }
         }
     }
 }

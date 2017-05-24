@@ -63,7 +63,7 @@ class TableViewDataSource<T>: NSObject, UITableViewDataSource {
     var headerTitles: [String]?
 
     /// The objects array backing the table view.
-    var objects: [[T]]
+    fileprivate(set) var objects: [[T]]
 
     /// The cell reuse identifier
     let reuseId: String
@@ -80,8 +80,13 @@ class TableViewDataSource<T>: NSObject, UITableViewDataSource {
     /// - Parameters:
     ///   - objects: The array of objects to be displayed in the table view.
     ///   - cellReuseId: The reuse id of the cell in the table view.
-    convenience init(objects: [T], cellReuseId: String, cellPresenter: CellPresenter? = nil) {
-        self.init(objects: [objects], cellReuseId: cellReuseId, cellPresenter: cellPresenter)
+    convenience init(objects: [T]?, cellReuseId: String, cellPresenter: CellPresenter? = nil) {
+        var wrappedObjects: [[T]]? = nil
+        if let objects = objects {
+            wrappedObjects = [objects]
+        }
+
+        self.init(objects: wrappedObjects, cellReuseId: cellReuseId, cellPresenter: cellPresenter)
     }
 
     /// Initializes a data source with a 2 dimensional objects array
@@ -89,9 +94,9 @@ class TableViewDataSource<T>: NSObject, UITableViewDataSource {
     /// - Parameters:
     ///   - objects: The array of objects to be displayed in the table view. The table view will for groups based on the sub arrays.
     ///   - cellReuseId: The reuse id of the cell in the table view.
-    init(objects: [[T]], cellReuseId: String, cellPresenter: CellPresenter? = nil) {
+    init(objects: [[T]]?, cellReuseId: String, cellPresenter: CellPresenter? = nil) {
         self.cellPresenter = cellPresenter
-        self.objects = objects
+        self.objects = objects ?? [[T]]()
         self.reuseId = cellReuseId
     }
 
@@ -136,6 +141,19 @@ class TableViewDataSource<T>: NSObject, UITableViewDataSource {
         let section = sectionArray(indexPath)
 
         return section[indexPath.row]
+    }
+
+    func objects(_ objects: [T]?) {
+        var wrappedObjects: [[T]]? = nil
+        if let objects = objects {
+            wrappedObjects = [objects]
+        }
+
+        self.objects(wrappedObjects)
+    }
+
+    func objects(_ objects: [[T]]?) {
+        self.objects = objects ?? [[T]]()
     }
 
     // MARK: Private Methods
