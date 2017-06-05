@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "14D915DB1EE51023002D0ABA"
+               BlueprintIdentifier = "147FBAFA1EE60D7700D2441D"
                BuildableName = "TableViewDataSource.framework"
                BlueprintName = "TableViewDataSource"
                ReferencedContainer = "container:TableViewDataSource.xcodeproj">
@@ -26,14 +26,13 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      codeCoverageEnabled = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "14D915E41EE51023002D0ABA"
+               BlueprintIdentifier = "147FBB031EE60D7700D2441D"
                BuildableName = "TableViewDataSourceTests.xctest"
                BlueprintName = "TableViewDataSourceTests"
                ReferencedContainer = "container:TableViewDataSource.xcodeproj">
@@ -43,7 +42,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "14D915DB1EE51023002D0ABA"
+            BlueprintIdentifier = "147FBAFA1EE60D7700D2441D"
             BuildableName = "TableViewDataSource.framework"
             BlueprintName = "TableViewDataSource"
             ReferencedContainer = "container:TableViewDataSource.xcodeproj">
@@ -65,7 +64,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "14D915DB1EE51023002D0ABA"
+            BlueprintIdentifier = "147FBAFA1EE60D7700D2441D"
             BuildableName = "TableViewDataSource.framework"
             BlueprintName = "TableViewDataSource"
             ReferencedContainer = "container:TableViewDataSource.xcodeproj">
@@ -83,7 +82,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "14D915DB1EE51023002D0ABA"
+            BlueprintIdentifier = "147FBAFA1EE60D7700D2441D"
             BuildableName = "TableViewDataSource.framework"
             BlueprintName = "TableViewDataSource"
             ReferencedContainer = "container:TableViewDataSource.xcodeproj">
