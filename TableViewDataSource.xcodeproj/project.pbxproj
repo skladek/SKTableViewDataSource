@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05590278E44735A5B880BEAE /* Pods_TableViewDataSourceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34282D2262BE982093BBFD5A /* Pods_TableViewDataSourceTests.framework */; };
 		14D915E61EE51023002D0ABA /* TableViewDataSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14D915DC1EE51023002D0ABA /* TableViewDataSource.framework */; };
 		14D915ED1EE51023002D0ABA /* TableViewDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 14D915DF1EE51023002D0ABA /* TableViewDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		14D916251EE51112002D0ABA /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D916241EE51112002D0ABA /* TableViewDataSource.swift */; };
@@ -33,6 +34,9 @@
 		14D916241EE51112002D0ABA /* TableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
 		14D916271EE5111D002D0ABA /* MockTableViewDataSourceDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockTableViewDataSourceDelegate.swift; sourceTree = "<group>"; };
 		14D916281EE5111D002D0ABA /* TableViewDataSourceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDataSourceSpec.swift; sourceTree = "<group>"; };
+		227F2D146E5FADBDFC431BAA /* Pods-TableViewDataSourceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TableViewDataSourceTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TableViewDataSourceTests/Pods-TableViewDataSourceTests.release.xcconfig"; sourceTree = "<group>"; };
+		2D70A17F23FD150727BF9D03 /* Pods-TableViewDataSourceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TableViewDataSourceTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TableViewDataSourceTests/Pods-TableViewDataSourceTests.debug.xcconfig"; sourceTree = "<group>"; };
+		34282D2262BE982093BBFD5A /* Pods_TableViewDataSourceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TableViewDataSourceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +52,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14D915E61EE51023002D0ABA /* TableViewDataSource.framework in Frameworks */,
+				05590278E44735A5B880BEAE /* Pods_TableViewDataSourceTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +65,8 @@
 				14D915DE1EE51023002D0ABA /* TableViewDataSource */,
 				14D915E91EE51023002D0ABA /* TableViewDataSourceTests */,
 				14D915DD1EE51023002D0ABA /* Products */,
+				D1051A864A0B7E747FF886E1 /* Pods */,
+				EABD8080DFB14D4327430993 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,6 +115,23 @@
 			path = DataSource;
 			sourceTree = "<group>";
 		};
+		D1051A864A0B7E747FF886E1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2D70A17F23FD150727BF9D03 /* Pods-TableViewDataSourceTests.debug.xcconfig */,
+				227F2D146E5FADBDFC431BAA /* Pods-TableViewDataSourceTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		EABD8080DFB14D4327430993 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				34282D2262BE982093BBFD5A /* Pods_TableViewDataSourceTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -144,10 +168,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 14D915F31EE51023002D0ABA /* Build configuration list for PBXNativeTarget "TableViewDataSourceTests" */;
 			buildPhases = (
+				42958000681852B48D7B9949 /* [CP] Check Pods Manifest.lock */,
 				14D915E11EE51023002D0ABA /* Sources */,
 				14D915E21EE51023002D0ABA /* Frameworks */,
 				14D915E31EE51023002D0ABA /* Resources */,
-				14D9162C1EE515A4002D0ABA /* Copy Carthage Frameworks */,
+				E1AE5A3EDE0265749875C7C2 /* [CP] Embed Pods Frameworks */,
+				25933A49CB959B5FE06528AC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -217,21 +243,50 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		14D9162C1EE515A4002D0ABA /* Copy Carthage Frameworks */ = {
+		25933A49CB959B5FE06528AC /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Quick.framework",
 			);
-			name = "Copy Carthage Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TableViewDataSourceTests/Pods-TableViewDataSourceTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		42958000681852B48D7B9949 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E1AE5A3EDE0265749875C7C2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TableViewDataSourceTests/Pods-TableViewDataSourceTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -411,10 +466,9 @@
 		};
 		14D915F41EE51023002D0ABA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D70A17F23FD150727BF9D03 /* Pods-TableViewDataSourceTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = MV978XDK83;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
 				INFOPLIST_FILE = TableViewDataSourceTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.skladek.TableViewDataSourceTests;
@@ -425,10 +479,9 @@
 		};
 		14D915F51EE51023002D0ABA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 227F2D146E5FADBDFC431BAA /* Pods-TableViewDataSourceTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = MV978XDK83;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
 				INFOPLIST_FILE = TableViewDataSourceTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.skladek.TableViewDataSourceTests;
