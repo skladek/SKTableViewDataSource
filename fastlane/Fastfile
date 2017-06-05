@@ -5,7 +5,7 @@ default_platform :ios
 lane :test do
   cocoapods
   scan(
-  	project: "TableViewDataSource.xcodeproj",
-    scheme: "TableViewDataSource"
+    scheme: "TableViewDataSource",
+    workspace: "TableViewDataSource.xcworkspace"
   )
 end
