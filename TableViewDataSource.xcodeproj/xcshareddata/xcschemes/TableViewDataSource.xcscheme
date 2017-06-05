@@ -14,8 +14,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C51379951E8DBCE500E1BB01"
-               BuildableName = "TableViewDataSource.app"
+               BlueprintIdentifier = "14D915DB1EE51023002D0ABA"
+               BuildableName = "TableViewDataSource.framework"
                BlueprintName = "TableViewDataSource"
                ReferencedContainer = "container:TableViewDataSource.xcodeproj">
             </BuildableReference>
@@ -26,14 +26,13 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      codeCoverageEnabled = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C51379A91E8DBCE500E1BB01"
+               BlueprintIdentifier = "14D915E41EE51023002D0ABA"
                BuildableName = "TableViewDataSourceTests.xctest"
                BlueprintName = "TableViewDataSourceTests"
                ReferencedContainer = "container:TableViewDataSource.xcodeproj">
@@ -43,8 +42,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C51379951E8DBCE500E1BB01"
-            BuildableName = "TableViewDataSource.app"
+            BlueprintIdentifier = "14D915DB1EE51023002D0ABA"
+            BuildableName = "TableViewDataSource.framework"
             BlueprintName = "TableViewDataSource"
             ReferencedContainer = "container:TableViewDataSource.xcodeproj">
          </BuildableReference>
@@ -62,16 +61,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C51379951E8DBCE500E1BB01"
-            BuildableName = "TableViewDataSource.app"
+            BlueprintIdentifier = "14D915DB1EE51023002D0ABA"
+            BuildableName = "TableViewDataSource.framework"
             BlueprintName = "TableViewDataSource"
             ReferencedContainer = "container:TableViewDataSource.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -81,16 +79,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C51379951E8DBCE500E1BB01"
-            BuildableName = "TableViewDataSource.app"
+            BlueprintIdentifier = "14D915DB1EE51023002D0ABA"
+            BuildableName = "TableViewDataSource.framework"
             BlueprintName = "TableViewDataSource"
             ReferencedContainer = "container:TableViewDataSource.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
