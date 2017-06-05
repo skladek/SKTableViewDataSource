@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		14D916141EE5107B002D0ABA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D916011EE5107B002D0ABA /* AppDelegate.swift */; };
 		14D916151EE5107B002D0ABA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14D916021EE5107B002D0ABA /* Assets.xcassets */; };
-		14D916161EE5107B002D0ABA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 14D916031EE5107B002D0ABA /* Info.plist */; };
 		14D916181EE5107B002D0ABA /* EditableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D916071EE5107B002D0ABA /* EditableViewController.swift */; };
 		14D916191EE5107B002D0ABA /* EditableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14D916081EE5107B002D0ABA /* EditableViewController.xib */; };
 		14D9161A1EE5107B002D0ABA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D916091EE5107B002D0ABA /* HomeViewController.swift */; };
@@ -18,7 +17,46 @@
 		14D9161D1EE5107B002D0ABA /* MultiSectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14D9160C1EE5107B002D0ABA /* MultiSectionViewController.xib */; };
 		14D9161E1EE5107B002D0ABA /* SingleSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D9160D1EE5107B002D0ABA /* SingleSectionViewController.swift */; };
 		14D9161F1EE5107B002D0ABA /* SingleSectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14D9160E1EE5107B002D0ABA /* SingleSectionViewController.xib */; };
+		14D916831EE5B43B002D0ABA /* TableViewDataSource.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 14D9167B1EE5B3D0002D0ABA /* TableViewDataSource.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		14D9167A1EE5B3D0002D0ABA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 14D916751EE5B3D0002D0ABA /* TableViewDataSource.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 14D915DC1EE51023002D0ABA;
+			remoteInfo = TableViewDataSource;
+		};
+		14D9167C1EE5B3D0002D0ABA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 14D916751EE5B3D0002D0ABA /* TableViewDataSource.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 14D915E51EE51023002D0ABA;
+			remoteInfo = TableViewDataSourceTests;
+		};
+		14D9167E1EE5B3D6002D0ABA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 14D916751EE5B3D0002D0ABA /* TableViewDataSource.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 14D915DB1EE51023002D0ABA;
+			remoteInfo = TableViewDataSource;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		14D916801EE5B3FD002D0ABA /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				14D916831EE5B43B002D0ABA /* TableViewDataSource.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		14D916011EE5107B002D0ABA /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -32,9 +70,8 @@
 		14D9160C1EE5107B002D0ABA /* MultiSectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MultiSectionViewController.xib; sourceTree = "<group>"; };
 		14D9160D1EE5107B002D0ABA /* SingleSectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleSectionViewController.swift; sourceTree = "<group>"; };
 		14D9160E1EE5107B002D0ABA /* SingleSectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleSectionViewController.xib; sourceTree = "<group>"; };
+		14D916751EE5B3D0002D0ABA /* TableViewDataSource.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = TableViewDataSource.xcodeproj; sourceTree = "<group>"; };
 		C51379961E8DBCE500E1BB01 /* SampleProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C51379D11E8DE98500E1BB01 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = SOURCE_ROOT; };
-		C51379D21E8DE98500E1BB01 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,12 +119,21 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		14D916761EE5B3D0002D0ABA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				14D9167B1EE5B3D0002D0ABA /* TableViewDataSource.framework */,
+				14D9167D1EE5B3D0002D0ABA /* TableViewDataSourceTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		C513798D1E8DBCE500E1BB01 = {
 			isa = PBXGroup;
 			children = (
 				14D915FF1EE5107B002D0ABA /* SampleProject */,
-				C51379D51E8DE98C00E1BB01 /* Frameworks */,
 				C51379971E8DBCE500E1BB01 /* Products */,
+				14D916751EE5B3D0002D0ABA /* TableViewDataSource.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,16 +143,6 @@
 				C51379961E8DBCE500E1BB01 /* SampleProject.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		C51379D51E8DE98C00E1BB01 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				C51379D11E8DE98500E1BB01 /* Nimble.framework */,
-				C51379D21E8DE98500E1BB01 /* Quick.framework */,
-			);
-			name = Frameworks;
-			path = TableViewDataSource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,11 +155,12 @@
 				C51379921E8DBCE500E1BB01 /* Sources */,
 				C51379931E8DBCE500E1BB01 /* Frameworks */,
 				C51379941E8DBCE500E1BB01 /* Resources */,
-				C51379D01E8DE8D100E1BB01 /* Copy Carthage Frameworks */,
+				14D916801EE5B3FD002D0ABA /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				14D9167F1EE5B3D6002D0ABA /* PBXTargetDependency */,
 			);
 			name = SampleProject;
 			productName = TableViewDataSource;
@@ -158,6 +195,12 @@
 			mainGroup = C513798D1E8DBCE500E1BB01;
 			productRefGroup = C51379971E8DBCE500E1BB01 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 14D916761EE5B3D0002D0ABA /* Products */;
+					ProjectRef = 14D916751EE5B3D0002D0ABA /* TableViewDataSource.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				C51379951E8DBCE500E1BB01 /* SampleProject */,
@@ -165,13 +208,29 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		14D9167B1EE5B3D0002D0ABA /* TableViewDataSource.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = TableViewDataSource.framework;
+			remoteRef = 14D9167A1EE5B3D0002D0ABA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		14D9167D1EE5B3D0002D0ABA /* TableViewDataSourceTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = TableViewDataSourceTests.xctest;
+			remoteRef = 14D9167C1EE5B3D0002D0ABA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		C51379941E8DBCE500E1BB01 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				14D9161D1EE5107B002D0ABA /* MultiSectionViewController.xib in Resources */,
-				14D916161EE5107B002D0ABA /* Info.plist in Resources */,
 				14D916151EE5107B002D0ABA /* Assets.xcassets in Resources */,
 				14D916191EE5107B002D0ABA /* EditableViewController.xib in Resources */,
 				14D9161F1EE5107B002D0ABA /* SingleSectionViewController.xib in Resources */,
@@ -180,25 +239,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		C51379D01E8DE8D100E1BB01 /* Copy Carthage Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Quick.framework",
-			);
-			name = "Copy Carthage Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks ";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C51379921E8DBCE500E1BB01 /* Sources */ = {
@@ -214,6 +254,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		14D9167F1EE5B3D6002D0ABA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TableViewDataSource;
+			targetProxy = 14D9167E1EE5B3D6002D0ABA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		C51379B11E8DBCE500E1BB01 /* Debug */ = {
@@ -311,12 +359,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = MV978XDK83;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/SampleProject/Application/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = skladek.SampleProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -328,12 +376,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
 				DEVELOPMENT_TEAM = MV978XDK83;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/SampleProject/Application/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = skladek.SampleProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
