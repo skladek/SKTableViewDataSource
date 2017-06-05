@@ -46,12 +46,16 @@ public protocol TableViewDataSourceDelegate {
 
 public class TableViewDataSource<T>: NSObject, UITableViewDataSource {
 
+
     // MARK: Class Types
+
 
     /// A closure to allow the presenter logic to be injected on init.
     public typealias CellPresenter = (_ cell: UITableViewCell, _ object: T) -> ()
 
+
     // MARK: Public Variables
+
 
     /// The object that acts as the delegate to the data source.
     public weak var delegate: TableViewDataSourceDelegate?
@@ -62,18 +66,24 @@ public class TableViewDataSource<T>: NSObject, UITableViewDataSource {
     /// An array of titles for the header sections.
     public var headerTitles: [String]?
 
-    /// The objects array backing the table view.
-    fileprivate(set) var objects: [[T]]
+
+    // MARK: Internal Variables
+
 
     /// The cell reuse identifier
     let reuseId: String
 
+
     // MARK: Private variables
 
-    /// The presenter logic.
+
     fileprivate let cellPresenter: CellPresenter?
 
+    fileprivate(set) var objects: [[T]]
+
+
     // MARK: Initializers
+
 
     /// Initializes a data source with an objects array
     ///
@@ -100,7 +110,9 @@ public class TableViewDataSource<T>: NSObject, UITableViewDataSource {
         self.reuseId = cellReuseId
     }
 
+
     // MARK: Instance Methods
+
 
     /// Deletes the object at the given index path
     ///
@@ -143,6 +155,9 @@ public class TableViewDataSource<T>: NSObject, UITableViewDataSource {
         return section[indexPath.row]
     }
 
+    /// Sets the data source objects from a 1 dimensional array.
+    ///
+    /// - Parameter objects: The array to update the data store objects with.
     public func setObjects(_ objects: [T]?) {
         var wrappedObjects: [[T]]? = nil
         if let objects = objects {
@@ -152,17 +167,24 @@ public class TableViewDataSource<T>: NSObject, UITableViewDataSource {
         self.setObjects(wrappedObjects)
     }
 
+    /// Sets the data source objects to the passed in array.
+    ///
+    /// - Parameter objects: The array to updat the data store objects with.
     public func setObjects(_ objects: [[T]]?) {
         self.objects = objects ?? [[T]]()
     }
 
+
     // MARK: Private Methods
+
 
     private func sectionArray(_ indexPath: IndexPath) -> [T] {
         return objects[indexPath.section]
     }
 
+
     // MARK: UITableViewDataSource Methods
+
 
     public func numberOfSections(in tableView: UITableView) -> Int {
         if let sections = delegate?.numberOfSections?(in: tableView) {
