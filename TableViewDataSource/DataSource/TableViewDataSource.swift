@@ -9,7 +9,7 @@
 import UIKit
 
 @objc
-protocol TableViewDataSourceDelegate {
+public protocol TableViewDataSourceDelegate {
     @objc
     optional func numberOfSections(in tableView: UITableView) -> Int
 
@@ -44,43 +44,53 @@ protocol TableViewDataSourceDelegate {
     optional func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
 }
 
-class TableViewDataSource<T>: NSObject, UITableViewDataSource {
+public class TableViewDataSource<T>: NSObject, UITableViewDataSource {
+
 
     // MARK: Class Types
 
+
     /// A closure to allow the presenter logic to be injected on init.
-    typealias CellPresenter = (_ cell: UITableViewCell, _ object: T) -> ()
+    public typealias CellPresenter = (_ cell: UITableViewCell, _ object: T) -> ()
+
 
     // MARK: Public Variables
 
+
     /// The object that acts as the delegate to the data source.
-    weak var delegate: TableViewDataSourceDelegate?
+    public weak var delegate: TableViewDataSourceDelegate?
 
     /// An array of titles for the footer sections.
-    var footerTitles: [String]?
+    public var footerTitles: [String]?
 
     /// An array of titles for the header sections.
-    var headerTitles: [String]?
+    public var headerTitles: [String]?
 
-    /// The objects array backing the table view.
-    fileprivate(set) var objects: [[T]]
+
+    // MARK: Internal Variables
+
 
     /// The cell reuse identifier
     let reuseId: String
 
+
     // MARK: Private variables
 
-    /// The presenter logic.
+
     fileprivate let cellPresenter: CellPresenter?
 
+    fileprivate(set) var objects: [[T]]
+
+
     // MARK: Initializers
+
 
     /// Initializes a data source with an objects array
     ///
     /// - Parameters:
     ///   - objects: The array of objects to be displayed in the table view.
     ///   - cellReuseId: The reuse id of the cell in the table view.
-    convenience init(objects: [T]?, cellReuseId: String, cellPresenter: CellPresenter? = nil) {
+    public convenience init(objects: [T]?, cellReuseId: String, cellPresenter: CellPresenter? = nil) {
         var wrappedObjects: [[T]]? = nil
         if let objects = objects {
             wrappedObjects = [objects]
@@ -94,18 +104,20 @@ class TableViewDataSource<T>: NSObject, UITableViewDataSource {
     /// - Parameters:
     ///   - objects: The array of objects to be displayed in the table view. The table view will for groups based on the sub arrays.
     ///   - cellReuseId: The reuse id of the cell in the table view.
-    init(objects: [[T]]?, cellReuseId: String, cellPresenter: CellPresenter? = nil) {
+    public init(objects: [[T]]?, cellReuseId: String, cellPresenter: CellPresenter? = nil) {
         self.cellPresenter = cellPresenter
         self.objects = objects ?? [[T]]()
         self.reuseId = cellReuseId
     }
 
+
     // MARK: Instance Methods
+
 
     /// Deletes the object at the given index path
     ///
     /// - Parameter indexPath: The index path of the object to delete.
-    func delete(indexPath: IndexPath) {
+    public func delete(indexPath: IndexPath) {
         var section = sectionArray(indexPath)
         section.remove(at: indexPath.row)
         objects[indexPath.section] = section
@@ -116,7 +128,7 @@ class TableViewDataSource<T>: NSObject, UITableViewDataSource {
     /// - Parameters:
     ///   - object: The object to be inserted into the array
     ///   - indexPath: The index path to insert the item at.
-    func insert(object: T, at indexPath: IndexPath) {
+    public func insert(object: T, at indexPath: IndexPath) {
         var section = sectionArray(indexPath)
         section.insert(object, at: indexPath.row)
         objects[indexPath.section] = section
@@ -127,7 +139,7 @@ class TableViewDataSource<T>: NSObject, UITableViewDataSource {
     /// - Parameters:
     ///   - sourceIndexPath: The current index path of the object.
     ///   - destinationIndexPath: The index path where the object should be after the move.
-    func moveFrom(_ sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+    public func moveFrom(_ sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         let movedObject = object(sourceIndexPath)
         delete(indexPath: sourceIndexPath)
         insert(object: movedObject, at: destinationIndexPath)
@@ -137,34 +149,44 @@ class TableViewDataSource<T>: NSObject, UITableViewDataSource {
     ///
     /// - Parameter indexPath: The index path of the object to retrieve.
     /// - Returns: Returns the object at the provided index path.
-    func object(_ indexPath: IndexPath) -> T {
+    public func object(_ indexPath: IndexPath) -> T {
         let section = sectionArray(indexPath)
 
         return section[indexPath.row]
     }
 
-    func objects(_ objects: [T]?) {
+    /// Sets the data source objects from a 1 dimensional array.
+    ///
+    /// - Parameter objects: The array to update the data store objects with.
+    public func setObjects(_ objects: [T]?) {
         var wrappedObjects: [[T]]? = nil
         if let objects = objects {
             wrappedObjects = [objects]
         }
 
-        self.objects(wrappedObjects)
+        self.setObjects(wrappedObjects)
     }
 
-    func objects(_ objects: [[T]]?) {
+    /// Sets the data source objects to the passed in array.
+    ///
+    /// - Parameter objects: The array to updat the data store objects with.
+    public func setObjects(_ objects: [[T]]?) {
         self.objects = objects ?? [[T]]()
     }
 
+
     // MARK: Private Methods
+
 
     private func sectionArray(_ indexPath: IndexPath) -> [T] {
         return objects[indexPath.section]
     }
 
+
     // MARK: UITableViewDataSource Methods
 
-    func numberOfSections(in tableView: UITableView) -> Int {
+
+    public func numberOfSections(in tableView: UITableView) -> Int {
         if let sections = delegate?.numberOfSections?(in: tableView) {
             return sections
         }
@@ -172,19 +194,19 @@ class TableViewDataSource<T>: NSObject, UITableViewDataSource {
         return objects.count
     }
 
-    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+    public func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         return delegate?.sectionIndexTitles?(for: tableView)
     }
 
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+    public func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return delegate?.tableView?(tableView, canEditRowAt: indexPath) ?? false
     }
 
-    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+    public func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return delegate?.tableView?(tableView, canMoveRowAt: indexPath) ?? true
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = delegate?.tableView?(tableView, cellForRowAt: indexPath) {
             return cell
         }
@@ -197,15 +219,15 @@ class TableViewDataSource<T>: NSObject, UITableViewDataSource {
         return cell
     }
 
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         delegate?.tableView?(tableView, commit: editingStyle, forRowAt: indexPath)
     }
 
-    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         delegate?.tableView?(tableView, moveRowAt: sourceIndexPath, to: destinationIndexPath)
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let rows = delegate?.tableView?(tableView, numberOfRowsInSection: section) {
             return rows
         }
@@ -216,11 +238,11 @@ class TableViewDataSource<T>: NSObject, UITableViewDataSource {
         return section.count
     }
 
-    func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
+    public func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
         return delegate?.tableView?(tableView, sectionForSectionIndexTitle: title, at: index) ?? -1
     }
 
-    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+    public func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         var footerTitle: String?
 
         if let title = delegate?.tableView?(tableView, titleForFooterInSection: section) {
@@ -232,7 +254,7 @@ class TableViewDataSource<T>: NSObject, UITableViewDataSource {
         return footerTitle
     }
 
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         var headerTitle: String?
 
         if let title = delegate?.tableView?(tableView, titleForHeaderInSection: section) {
