@@ -3,7 +3,10 @@ fastlane_version "2.27.0"
 default_platform :ios
 
 lane :test do
-  cocoapods
+  cocoapods(
+	repo_update: true
+  )
+
   scan(
     scheme: "TableViewDataSource",
     workspace: "TableViewDataSource.xcworkspace"
