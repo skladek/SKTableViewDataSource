@@ -17,7 +17,8 @@
 		14D9161D1EE5107B002D0ABA /* MultiSectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14D9160C1EE5107B002D0ABA /* MultiSectionViewController.xib */; };
 		14D9161E1EE5107B002D0ABA /* SingleSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D9160D1EE5107B002D0ABA /* SingleSectionViewController.swift */; };
 		14D9161F1EE5107B002D0ABA /* SingleSectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14D9160E1EE5107B002D0ABA /* SingleSectionViewController.xib */; };
-		14D916831EE5B43B002D0ABA /* TableViewDataSource.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 14D9167B1EE5B3D0002D0ABA /* TableViewDataSource.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14F7D02E1EE88FDE00C232AB /* TableViewDataSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14D9167B1EE5B3D0002D0ABA /* TableViewDataSource.framework */; };
+		14F7D02F1EE88FDE00C232AB /* TableViewDataSource.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14D9167B1EE5B3D0002D0ABA /* TableViewDataSource.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,25 +36,25 @@
 			remoteGlobalIDString = 14D915E51EE51023002D0ABA;
 			remoteInfo = TableViewDataSourceTests;
 		};
-		14D9167E1EE5B3D6002D0ABA /* PBXContainerItemProxy */ = {
+		14F7D0301EE88FDE00C232AB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 14D916751EE5B3D0002D0ABA /* TableViewDataSource.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 14D915DB1EE51023002D0ABA;
+			remoteGlobalIDString = 147FBAFA1EE60D7700D2441D;
 			remoteInfo = TableViewDataSource;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		14D916801EE5B3FD002D0ABA /* Copy Frameworks */ = {
+		14F7D0321EE88FDE00C232AB /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				14D916831EE5B43B002D0ABA /* TableViewDataSource.framework in Copy Frameworks */,
+				14F7D02F1EE88FDE00C232AB /* TableViewDataSource.framework in Embed Frameworks */,
 			);
-			name = "Copy Frameworks";
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -79,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14F7D02E1EE88FDE00C232AB /* TableViewDataSource.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,12 +157,12 @@
 				C51379921E8DBCE500E1BB01 /* Sources */,
 				C51379931E8DBCE500E1BB01 /* Frameworks */,
 				C51379941E8DBCE500E1BB01 /* Resources */,
-				14D916801EE5B3FD002D0ABA /* Copy Frameworks */,
+				14F7D0321EE88FDE00C232AB /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				14D9167F1EE5B3D6002D0ABA /* PBXTargetDependency */,
+				14F7D0311EE88FDE00C232AB /* PBXTargetDependency */,
 			);
 			name = SampleProject;
 			productName = TableViewDataSource;
@@ -256,10 +258,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		14D9167F1EE5B3D6002D0ABA /* PBXTargetDependency */ = {
+		14F7D0311EE88FDE00C232AB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = TableViewDataSource;
-			targetProxy = 14D9167E1EE5B3D6002D0ABA /* PBXContainerItemProxy */;
+			targetProxy = 14F7D0301EE88FDE00C232AB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -358,6 +360,7 @@
 		C51379B41E8DBCE500E1BB01 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -375,6 +378,7 @@
 		C51379B51E8DBCE500E1BB01 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
