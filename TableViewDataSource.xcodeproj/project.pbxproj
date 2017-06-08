@@ -14,6 +14,7 @@
 		147FBB1C1EE60EA000D2441D /* MockTableViewDataSourceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBB1A1EE60EA000D2441D /* MockTableViewDataSourceDelegate.swift */; };
 		147FBB1D1EE60EA000D2441D /* TableViewDataSourceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FBB1B1EE60EA000D2441D /* TableViewDataSourceSpec.swift */; };
 		5043CF2457E9D017DF5E3722 /* Pods_TableViewDataSourceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D81AB998AF008B86085835 /* Pods_TableViewDataSourceTests.framework */; };
+		FF6B0406FCC4AC5AB06BB831 /* Pods_TableViewDataSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6347D82EC66E9DD6002B6A9 /* Pods_TableViewDataSource.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D2280B7EAD316DDDA79A648 /* Pods-TableViewDataSource.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TableViewDataSource.release.xcconfig"; path = "Pods/Target Support Files/Pods-TableViewDataSource/Pods-TableViewDataSource.release.xcconfig"; sourceTree = "<group>"; };
 		147FBAFB1EE60D7700D2441D /* TableViewDataSource.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TableViewDataSource.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		147FBAFE1EE60D7700D2441D /* TableViewDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewDataSource.h; sourceTree = "<group>"; };
 		147FBAFF1EE60D7700D2441D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -37,6 +39,8 @@
 		147FBB1A1EE60EA000D2441D /* MockTableViewDataSourceDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockTableViewDataSourceDelegate.swift; sourceTree = "<group>"; };
 		147FBB1B1EE60EA000D2441D /* TableViewDataSourceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDataSourceSpec.swift; sourceTree = "<group>"; };
 		4861EB9A58C79DAFAF67CF8C /* Pods-TableViewDataSourceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TableViewDataSourceTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TableViewDataSourceTests/Pods-TableViewDataSourceTests.release.xcconfig"; sourceTree = "<group>"; };
+		4AD40A8A5390B4318D1F0CA2 /* Pods-TableViewDataSource.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TableViewDataSource.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TableViewDataSource/Pods-TableViewDataSource.debug.xcconfig"; sourceTree = "<group>"; };
+		B6347D82EC66E9DD6002B6A9 /* Pods_TableViewDataSource.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TableViewDataSource.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3D81AB998AF008B86085835 /* Pods_TableViewDataSourceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TableViewDataSourceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9737290F8364906C4F12F02 /* Pods-TableViewDataSourceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TableViewDataSourceTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TableViewDataSourceTests/Pods-TableViewDataSourceTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -46,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF6B0406FCC4AC5AB06BB831 /* Pods_TableViewDataSource.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +128,8 @@
 			children = (
 				D9737290F8364906C4F12F02 /* Pods-TableViewDataSourceTests.debug.xcconfig */,
 				4861EB9A58C79DAFAF67CF8C /* Pods-TableViewDataSourceTests.release.xcconfig */,
+				4AD40A8A5390B4318D1F0CA2 /* Pods-TableViewDataSource.debug.xcconfig */,
+				0D2280B7EAD316DDDA79A648 /* Pods-TableViewDataSource.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -131,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				C3D81AB998AF008B86085835 /* Pods_TableViewDataSourceTests.framework */,
+				B6347D82EC66E9DD6002B6A9 /* Pods_TableViewDataSource.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -153,10 +161,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 147FBB0F1EE60D7700D2441D /* Build configuration list for PBXNativeTarget "TableViewDataSource" */;
 			buildPhases = (
+				22B127A2A827F032593DDACD /* [CP] Check Pods Manifest.lock */,
 				147FBAF61EE60D7700D2441D /* Sources */,
 				147FBAF71EE60D7700D2441D /* Frameworks */,
 				147FBAF81EE60D7700D2441D /* Headers */,
 				147FBAF91EE60D7700D2441D /* Resources */,
+				2E3844BF60C6CDC8DCE3871F /* [CP] Copy Pods Resources */,
+				1433BE321EE90734005D54B3 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -261,6 +272,35 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TableViewDataSourceTests/Pods-TableViewDataSourceTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		1433BE321EE90734005D54B3 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint";
+		};
+		22B127A2A827F032593DDACD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		259507F717F1F923D1E8CCC4 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -289,6 +329,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		2E3844BF60C6CDC8DCE3871F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TableViewDataSource/Pods-TableViewDataSource-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -426,6 +481,7 @@
 		};
 		147FBB101EE60D7700D2441D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4AD40A8A5390B4318D1F0CA2 /* Pods-TableViewDataSource.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
@@ -446,6 +502,7 @@
 		};
 		147FBB111EE60D7700D2441D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0D2280B7EAD316DDDA79A648 /* Pods-TableViewDataSource.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;

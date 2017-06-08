@@ -1,0 +1,9 @@
+included:
+  - TableViewDataSource
+
+excluded:
+  - Carthage
+  - Pods
+
+disabled_rules:
+  - line_length

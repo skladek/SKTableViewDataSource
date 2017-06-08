@@ -46,16 +46,12 @@ public protocol TableViewDataSourceDelegate {
 
 public class TableViewDataSource<T>: NSObject, UITableViewDataSource {
 
-
     // MARK: Class Types
 
-
     /// A closure to allow the presenter logic to be injected on init.
-    public typealias CellPresenter = (_ cell: UITableViewCell, _ object: T) -> ()
-
+    public typealias CellPresenter = (_ cell: UITableViewCell, _ object: T) -> Void
 
     // MARK: Public Variables
-
 
     /// The object that acts as the delegate to the data source.
     public weak var delegate: TableViewDataSourceDelegate?
@@ -66,24 +62,18 @@ public class TableViewDataSource<T>: NSObject, UITableViewDataSource {
     /// An array of titles for the header sections.
     public var headerTitles: [String]?
 
-
     // MARK: Internal Variables
-
 
     /// The cell reuse identifier
     let reuseId: String
 
-
     // MARK: Private variables
-
 
     fileprivate let cellPresenter: CellPresenter?
 
     fileprivate(set) var objects: [[T]]
 
-
     // MARK: Initializers
-
 
     /// Initializes a data source with an objects array
     ///
@@ -110,9 +100,7 @@ public class TableViewDataSource<T>: NSObject, UITableViewDataSource {
         self.reuseId = cellReuseId
     }
 
-
     // MARK: Instance Methods
-
 
     /// Deletes the object at the given index path
     ///
@@ -174,17 +162,13 @@ public class TableViewDataSource<T>: NSObject, UITableViewDataSource {
         self.objects = objects ?? [[T]]()
     }
 
-
     // MARK: Private Methods
-
 
     private func sectionArray(_ indexPath: IndexPath) -> [T] {
         return objects[indexPath.section]
     }
 
-
     // MARK: UITableViewDataSource Methods
-
 
     public func numberOfSections(in tableView: UITableView) -> Int {
         if let sections = delegate?.numberOfSections?(in: tableView) {
