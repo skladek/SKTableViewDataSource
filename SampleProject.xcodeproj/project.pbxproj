@@ -20,18 +20,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		147E8C381EEAFED600187410 /* PBXContainerItemProxy */ = {
+		146437801EEB04AC008FD84F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 147E8C331EEAFED600187410 /* SKTableViewDataSource.xcodeproj */;
+			containerPortal = 1464377B1EEB04AC008FD84F /* SKTableViewDataSource.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 147FBAFB1EE60D7700D2441D;
+			remoteGlobalIDString = 146437591EEB045B008FD84F;
 			remoteInfo = SKTableViewDataSource;
 		};
-		147E8C3A1EEAFED600187410 /* PBXContainerItemProxy */ = {
+		146437821EEB04AC008FD84F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 147E8C331EEAFED600187410 /* SKTableViewDataSource.xcodeproj */;
+			containerPortal = 1464377B1EEB04AC008FD84F /* SKTableViewDataSource.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 147FBB041EE60D7700D2441D;
+			remoteGlobalIDString = 146437621EEB045B008FD84F;
 			remoteInfo = SKTableViewDataSourceTests;
 		};
 /* End PBXContainerItemProxy section */
@@ -50,7 +50,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		147E8C331EEAFED600187410 /* SKTableViewDataSource.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = SKTableViewDataSource.xcodeproj; sourceTree = "<group>"; };
+		1464377B1EEB04AC008FD84F /* SKTableViewDataSource.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = SKTableViewDataSource.xcodeproj; sourceTree = "<group>"; };
 		14D916011EE5107B002D0ABA /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14D916021EE5107B002D0ABA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14D916031EE5107B002D0ABA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -76,11 +76,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		147E8C341EEAFED600187410 /* Products */ = {
+		1464377C1EEB04AC008FD84F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				147E8C391EEAFED600187410 /* SKTableViewDataSource.framework */,
-				147E8C3B1EEAFED600187410 /* SKTableViewDataSourceTests.xctest */,
+				146437811EEB04AC008FD84F /* SKTableViewDataSource.framework */,
+				146437831EEB04AC008FD84F /* SKTableViewDataSourceTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -124,7 +124,7 @@
 			children = (
 				14D915FF1EE5107B002D0ABA /* SampleProject */,
 				C51379971E8DBCE500E1BB01 /* Products */,
-				147E8C331EEAFED600187410 /* SKTableViewDataSource.xcodeproj */,
+				1464377B1EEB04AC008FD84F /* SKTableViewDataSource.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -187,8 +187,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 147E8C341EEAFED600187410 /* Products */;
-					ProjectRef = 147E8C331EEAFED600187410 /* SKTableViewDataSource.xcodeproj */;
+					ProductGroup = 1464377C1EEB04AC008FD84F /* Products */;
+					ProjectRef = 1464377B1EEB04AC008FD84F /* SKTableViewDataSource.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -199,18 +199,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		147E8C391EEAFED600187410 /* SKTableViewDataSource.framework */ = {
+		146437811EEB04AC008FD84F /* SKTableViewDataSource.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = SKTableViewDataSource.framework;
-			remoteRef = 147E8C381EEAFED600187410 /* PBXContainerItemProxy */;
+			remoteRef = 146437801EEB04AC008FD84F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		147E8C3B1EEAFED600187410 /* SKTableViewDataSourceTests.xctest */ = {
+		146437831EEB04AC008FD84F /* SKTableViewDataSourceTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = SKTableViewDataSourceTests.xctest;
-			remoteRef = 147E8C3A1EEAFED600187410 /* PBXContainerItemProxy */;
+			remoteRef = 146437821EEB04AC008FD84F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */

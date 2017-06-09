@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:TableViewDataSource.xcodeproj">
+      location = "self:SKTableViewDataSource.xcodeproj">
    </FileRef>
 </Workspace>
