@@ -6,7 +6,7 @@
 //  Copyright © 2017 skladek. All rights reserved.
 //
 
-import TableViewDataSource
+import SKTableViewDataSource
 import UIKit
 
 class MultiSectionViewController: UIViewController {

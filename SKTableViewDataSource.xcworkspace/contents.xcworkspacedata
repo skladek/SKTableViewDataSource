@@ -5,7 +5,7 @@
       location = "group:SKTableViewDataSource.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:SampleProject.xcodeproj">
+      location = "group:SampleProject/SampleProject.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
