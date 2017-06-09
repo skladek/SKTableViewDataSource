@@ -1,5 +1,5 @@
 included:
-  - SKTableViewDataSource
+  - Source
 
 excluded:
   - Pods

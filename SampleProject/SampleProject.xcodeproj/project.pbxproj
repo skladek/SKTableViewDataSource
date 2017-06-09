@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1431B89B1EEB0A6700D767DA /* SKTableViewDataSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1431B89A1EEB0A6700D767DA /* SKTableViewDataSource.framework */; };
+		1431B89C1EEB0A6700D767DA /* SKTableViewDataSource.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1431B89A1EEB0A6700D767DA /* SKTableViewDataSource.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		14D916141EE5107B002D0ABA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D916011EE5107B002D0ABA /* AppDelegate.swift */; };
 		14D916151EE5107B002D0ABA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14D916021EE5107B002D0ABA /* Assets.xcassets */; };
 		14D916181EE5107B002D0ABA /* EditableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D916071EE5107B002D0ABA /* EditableViewController.swift */; };
@@ -43,6 +45,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				1431B89C1EEB0A6700D767DA /* SKTableViewDataSource.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -50,6 +53,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1431B89A1EEB0A6700D767DA /* SKTableViewDataSource.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SKTableViewDataSource.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1464377B1EEB04AC008FD84F /* SKTableViewDataSource.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = SKTableViewDataSource.xcodeproj; sourceTree = "<group>"; };
 		14D916011EE5107B002D0ABA /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14D916021EE5107B002D0ABA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -70,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1431B89B1EEB0A6700D767DA /* SKTableViewDataSource.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,6 +127,7 @@
 		C513798D1E8DBCE500E1BB01 = {
 			isa = PBXGroup;
 			children = (
+				1431B89A1EEB0A6700D767DA /* SKTableViewDataSource.framework */,
 				14D915FF1EE5107B002D0ABA /* SampleProject */,
 				C51379971E8DBCE500E1BB01 /* Products */,
 				1464377B1EEB04AC008FD84F /* SKTableViewDataSource.xcodeproj */,
