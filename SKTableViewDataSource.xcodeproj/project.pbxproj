@@ -8,17 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		147E8C471EEAFF0800187410 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147E8C3E1EEAFF0800187410 /* TableViewDataSource.swift */; };
-		147E8C481EEAFF0800187410 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 147E8C3F1EEAFF0800187410 /* Info.plist */; };
 		147E8C491EEAFF0800187410 /* TableViewDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 147E8C401EEAFF0800187410 /* TableViewDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		147E8C4A1EEAFF0800187410 /* MockTableViewDataSourceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147E8C431EEAFF0800187410 /* MockTableViewDataSourceDelegate.swift */; };
-		147E8C4B1EEAFF0800187410 /* TableViewDataSourceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147E8C441EEAFF0800187410 /* TableViewDataSourceSpec.swift */; };
-		147E8C4C1EEAFF0800187410 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 147E8C451EEAFF0800187410 /* Info.plist */; };
-		147E8C4D1EEAFF0800187410 /* TableViewDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147E8C461EEAFF0800187410 /* TableViewDataSourceTests.swift */; };
 		147FBB051EE60D7700D2441D /* SKTableViewDataSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 147FBAFB1EE60D7700D2441D /* SKTableViewDataSource.framework */; };
+		14C509AF1EEB016D00D075A8 /* MockTableViewDataSourceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147E8C431EEAFF0800187410 /* MockTableViewDataSourceDelegate.swift */; };
+		14C509B01EEB016D00D075A8 /* TableViewDataSourceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147E8C441EEAFF0800187410 /* TableViewDataSourceSpec.swift */; };
 		4BF96DC8BDEE42191D98DA40 /* Pods_SKTableViewDataSourceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 820F86DD3CA5ED8229E2A1E4 /* Pods_SKTableViewDataSourceTests.framework */; };
-		5043CF2457E9D017DF5E3722 /* Pods_TableViewDataSourceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D81AB998AF008B86085835 /* Pods_TableViewDataSourceTests.framework */; };
 		6E8398BD31711ACCB1444C44 /* Pods_SKTableViewDataSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 556A72DFDA72F9D80F741088 /* Pods_SKTableViewDataSource.framework */; };
-		FF6B0406FCC4AC5AB06BB831 /* Pods_TableViewDataSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6347D82EC66E9DD6002B6A9 /* Pods_TableViewDataSource.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,23 +27,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		04651D11F2A82EB90169FC2D /* Pods-SKTableViewDataSourceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKTableViewDataSourceTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SKTableViewDataSourceTests/Pods-SKTableViewDataSourceTests.release.xcconfig"; sourceTree = "<group>"; };
 		147E8C3E1EEAFF0800187410 /* TableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
 		147E8C3F1EEAFF0800187410 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		147E8C401EEAFF0800187410 /* TableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewDataSource.h; sourceTree = "<group>"; };
 		147E8C431EEAFF0800187410 /* MockTableViewDataSourceDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockTableViewDataSourceDelegate.swift; sourceTree = "<group>"; };
 		147E8C441EEAFF0800187410 /* TableViewDataSourceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDataSourceSpec.swift; sourceTree = "<group>"; };
 		147E8C451EEAFF0800187410 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		147E8C461EEAFF0800187410 /* TableViewDataSourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDataSourceTests.swift; sourceTree = "<group>"; };
 		147FBAFB1EE60D7700D2441D /* SKTableViewDataSource.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SKTableViewDataSource.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		147FBB041EE60D7700D2441D /* SKTableViewDataSourceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SKTableViewDataSourceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		42AC143322FA3024CF8FA464 /* Pods-SKTableViewDataSource.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKTableViewDataSource.release.xcconfig"; path = "Pods/Target Support Files/Pods-SKTableViewDataSource/Pods-SKTableViewDataSource.release.xcconfig"; sourceTree = "<group>"; };
+		5154710C335E5588FC26AA7E /* Pods-SKTableViewDataSource.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKTableViewDataSource.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SKTableViewDataSource/Pods-SKTableViewDataSource.debug.xcconfig"; sourceTree = "<group>"; };
 		556A72DFDA72F9D80F741088 /* Pods_SKTableViewDataSource.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SKTableViewDataSource.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		56AD4EFDD04726DE822234B5 /* Pods-SKTableViewDataSource.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKTableViewDataSource.release.xcconfig"; path = "Pods/Target Support Files/Pods-SKTableViewDataSource/Pods-SKTableViewDataSource.release.xcconfig"; sourceTree = "<group>"; };
+		76AF7EE0658FA0191C12E42D /* Pods-SKTableViewDataSourceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKTableViewDataSourceTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SKTableViewDataSourceTests/Pods-SKTableViewDataSourceTests.debug.xcconfig"; sourceTree = "<group>"; };
 		820F86DD3CA5ED8229E2A1E4 /* Pods_SKTableViewDataSourceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SKTableViewDataSourceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9710562A09361D5F77CB3683 /* Pods-SKTableViewDataSourceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKTableViewDataSourceTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SKTableViewDataSourceTests/Pods-SKTableViewDataSourceTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B6347D82EC66E9DD6002B6A9 /* Pods_TableViewDataSource.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TableViewDataSource.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3D81AB998AF008B86085835 /* Pods_TableViewDataSourceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TableViewDataSourceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D7246C1D5C5E2A9AC8295E39 /* Pods-SKTableViewDataSource.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKTableViewDataSource.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SKTableViewDataSource/Pods-SKTableViewDataSource.debug.xcconfig"; sourceTree = "<group>"; };
+		DBCA5CAF0CEA0CE25BBEDFA7 /* Pods-SKTableViewDataSourceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKTableViewDataSourceTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SKTableViewDataSourceTests/Pods-SKTableViewDataSourceTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +50,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF6B0406FCC4AC5AB06BB831 /* Pods_TableViewDataSource.framework in Frameworks */,
 				6E8398BD31711ACCB1444C44 /* Pods_SKTableViewDataSource.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -66,7 +59,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				147FBB051EE60D7700D2441D /* SKTableViewDataSource.framework in Frameworks */,
-				5043CF2457E9D017DF5E3722 /* Pods_TableViewDataSourceTests.framework in Frameworks */,
 				4BF96DC8BDEE42191D98DA40 /* Pods_SKTableViewDataSourceTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -97,7 +89,6 @@
 			children = (
 				147E8C421EEAFF0800187410 /* DataSource */,
 				147E8C451EEAFF0800187410 /* Info.plist */,
-				147E8C461EEAFF0800187410 /* TableViewDataSourceTests.swift */,
 			);
 			path = SKTableViewDataSourceTests;
 			sourceTree = "<group>";
@@ -118,7 +109,7 @@
 				147E8C411EEAFF0800187410 /* SKTableViewDataSourceTests */,
 				147FBAFC1EE60D7700D2441D /* Products */,
 				E1403DDDBB423ED551712CE7 /* Frameworks */,
-				7B129DFD3593D06CAA56A535 /* Pods */,
+				98DC8BB1DDC323F7EC0E8706 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -131,13 +122,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		7B129DFD3593D06CAA56A535 /* Pods */ = {
+		98DC8BB1DDC323F7EC0E8706 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				D7246C1D5C5E2A9AC8295E39 /* Pods-SKTableViewDataSource.debug.xcconfig */,
-				56AD4EFDD04726DE822234B5 /* Pods-SKTableViewDataSource.release.xcconfig */,
-				9710562A09361D5F77CB3683 /* Pods-SKTableViewDataSourceTests.debug.xcconfig */,
-				04651D11F2A82EB90169FC2D /* Pods-SKTableViewDataSourceTests.release.xcconfig */,
+				5154710C335E5588FC26AA7E /* Pods-SKTableViewDataSource.debug.xcconfig */,
+				42AC143322FA3024CF8FA464 /* Pods-SKTableViewDataSource.release.xcconfig */,
+				76AF7EE0658FA0191C12E42D /* Pods-SKTableViewDataSourceTests.debug.xcconfig */,
+				DBCA5CAF0CEA0CE25BBEDFA7 /* Pods-SKTableViewDataSourceTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -254,8 +245,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				147E8C4C1EEAFF0800187410 /* Info.plist in Resources */,
-				147E8C481EEAFF0800187410 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,10 +354,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				147E8C4B1EEAFF0800187410 /* TableViewDataSourceSpec.swift in Sources */,
 				147E8C471EEAFF0800187410 /* TableViewDataSource.swift in Sources */,
-				147E8C4D1EEAFF0800187410 /* TableViewDataSourceTests.swift in Sources */,
-				147E8C4A1EEAFF0800187410 /* MockTableViewDataSourceDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +362,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14C509AF1EEB016D00D075A8 /* MockTableViewDataSourceDelegate.swift in Sources */,
+				14C509B01EEB016D00D075A8 /* TableViewDataSourceSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,7 +481,7 @@
 		};
 		147FBB101EE60D7700D2441D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D7246C1D5C5E2A9AC8295E39 /* Pods-SKTableViewDataSource.debug.xcconfig */;
+			baseConfigurationReference = 5154710C335E5588FC26AA7E /* Pods-SKTableViewDataSource.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
@@ -514,7 +502,7 @@
 		};
 		147FBB111EE60D7700D2441D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 56AD4EFDD04726DE822234B5 /* Pods-SKTableViewDataSource.release.xcconfig */;
+			baseConfigurationReference = 42AC143322FA3024CF8FA464 /* Pods-SKTableViewDataSource.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
@@ -535,7 +523,7 @@
 		};
 		147FBB131EE60D7700D2441D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9710562A09361D5F77CB3683 /* Pods-SKTableViewDataSourceTests.debug.xcconfig */;
+			baseConfigurationReference = 76AF7EE0658FA0191C12E42D /* Pods-SKTableViewDataSourceTests.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = MV978XDK83;
 				INFOPLIST_FILE = SKTableViewDataSourceTests/Info.plist;
@@ -548,7 +536,7 @@
 		};
 		147FBB141EE60D7700D2441D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 04651D11F2A82EB90169FC2D /* Pods-SKTableViewDataSourceTests.release.xcconfig */;
+			baseConfigurationReference = DBCA5CAF0CEA0CE25BBEDFA7 /* Pods-SKTableViewDataSourceTests.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = MV978XDK83;
 				INFOPLIST_FILE = SKTableViewDataSourceTests/Info.plist;

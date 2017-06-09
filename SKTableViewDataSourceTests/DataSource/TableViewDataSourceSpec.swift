@@ -10,7 +10,7 @@ import Foundation
 import Nimble
 import Quick
 
-@testable import TableViewDataSource
+@testable import SKTableViewDataSource
 
 class TableViewDataSourceSpec: QuickSpec {
 
