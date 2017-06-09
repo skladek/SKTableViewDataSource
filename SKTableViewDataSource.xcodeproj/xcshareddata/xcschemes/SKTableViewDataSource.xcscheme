@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "147FBAFA1EE60D7700D2441D"
-               BuildableName = "TableViewDataSource.framework"
-               BlueprintName = "TableViewDataSource"
-               ReferencedContainer = "container:TableViewDataSource.xcodeproj">
+               BuildableName = "SKTableViewDataSource.framework"
+               BlueprintName = "SKTableViewDataSource"
+               ReferencedContainer = "container:SKTableViewDataSource.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,9 +34,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "147FBB031EE60D7700D2441D"
-               BuildableName = "TableViewDataSourceTests.xctest"
-               BlueprintName = "TableViewDataSourceTests"
-               ReferencedContainer = "container:TableViewDataSource.xcodeproj">
+               BuildableName = "SKTableViewDataSourceTests.xctest"
+               BlueprintName = "SKTableViewDataSourceTests"
+               ReferencedContainer = "container:SKTableViewDataSource.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -44,9 +44,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "147FBAFA1EE60D7700D2441D"
-            BuildableName = "TableViewDataSource.framework"
-            BlueprintName = "TableViewDataSource"
-            ReferencedContainer = "container:TableViewDataSource.xcodeproj">
+            BuildableName = "SKTableViewDataSource.framework"
+            BlueprintName = "SKTableViewDataSource"
+            ReferencedContainer = "container:SKTableViewDataSource.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -66,9 +66,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "147FBAFA1EE60D7700D2441D"
-            BuildableName = "TableViewDataSource.framework"
-            BlueprintName = "TableViewDataSource"
-            ReferencedContainer = "container:TableViewDataSource.xcodeproj">
+            BuildableName = "SKTableViewDataSource.framework"
+            BlueprintName = "SKTableViewDataSource"
+            ReferencedContainer = "container:SKTableViewDataSource.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -84,9 +84,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "147FBAFA1EE60D7700D2441D"
-            BuildableName = "TableViewDataSource.framework"
-            BlueprintName = "TableViewDataSource"
-            ReferencedContainer = "container:TableViewDataSource.xcodeproj">
+            BuildableName = "SKTableViewDataSource.framework"
+            BlueprintName = "SKTableViewDataSource"
+            ReferencedContainer = "container:SKTableViewDataSource.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
