@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_TableViewDataSourceTestsVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_TableViewDataSourceTestsVersionString[];
+FOUNDATION_EXPORT double Pods_SKTableViewDataSourceTestsVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_SKTableViewDataSourceTestsVersionString[];
 
