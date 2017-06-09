@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-@testable import TableViewDataSource
+@testable import SKTableViewDataSource
 
 class MockTableViewDataSourceDelegate {
     var canEditRowAtCalled = false

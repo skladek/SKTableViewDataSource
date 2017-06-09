@@ -17,31 +17,22 @@
 		14D9161D1EE5107B002D0ABA /* MultiSectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14D9160C1EE5107B002D0ABA /* MultiSectionViewController.xib */; };
 		14D9161E1EE5107B002D0ABA /* SingleSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D9160D1EE5107B002D0ABA /* SingleSectionViewController.swift */; };
 		14D9161F1EE5107B002D0ABA /* SingleSectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14D9160E1EE5107B002D0ABA /* SingleSectionViewController.xib */; };
-		14F7D02E1EE88FDE00C232AB /* TableViewDataSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14D9167B1EE5B3D0002D0ABA /* TableViewDataSource.framework */; };
-		14F7D02F1EE88FDE00C232AB /* TableViewDataSource.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14D9167B1EE5B3D0002D0ABA /* TableViewDataSource.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		14D9167A1EE5B3D0002D0ABA /* PBXContainerItemProxy */ = {
+		146437801EEB04AC008FD84F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 14D916751EE5B3D0002D0ABA /* TableViewDataSource.xcodeproj */;
+			containerPortal = 1464377B1EEB04AC008FD84F /* SKTableViewDataSource.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 14D915DC1EE51023002D0ABA;
-			remoteInfo = TableViewDataSource;
+			remoteGlobalIDString = 146437591EEB045B008FD84F;
+			remoteInfo = SKTableViewDataSource;
 		};
-		14D9167C1EE5B3D0002D0ABA /* PBXContainerItemProxy */ = {
+		146437821EEB04AC008FD84F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 14D916751EE5B3D0002D0ABA /* TableViewDataSource.xcodeproj */;
+			containerPortal = 1464377B1EEB04AC008FD84F /* SKTableViewDataSource.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 14D915E51EE51023002D0ABA;
-			remoteInfo = TableViewDataSourceTests;
-		};
-		14F7D0301EE88FDE00C232AB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 14D916751EE5B3D0002D0ABA /* TableViewDataSource.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 147FBAFA1EE60D7700D2441D;
-			remoteInfo = TableViewDataSource;
+			remoteGlobalIDString = 146437621EEB045B008FD84F;
+			remoteInfo = SKTableViewDataSourceTests;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -52,7 +43,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				14F7D02F1EE88FDE00C232AB /* TableViewDataSource.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -60,6 +50,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1464377B1EEB04AC008FD84F /* SKTableViewDataSource.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = SKTableViewDataSource.xcodeproj; sourceTree = "<group>"; };
 		14D916011EE5107B002D0ABA /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14D916021EE5107B002D0ABA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14D916031EE5107B002D0ABA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -71,7 +62,6 @@
 		14D9160C1EE5107B002D0ABA /* MultiSectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MultiSectionViewController.xib; sourceTree = "<group>"; };
 		14D9160D1EE5107B002D0ABA /* SingleSectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleSectionViewController.swift; sourceTree = "<group>"; };
 		14D9160E1EE5107B002D0ABA /* SingleSectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleSectionViewController.xib; sourceTree = "<group>"; };
-		14D916751EE5B3D0002D0ABA /* TableViewDataSource.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = TableViewDataSource.xcodeproj; sourceTree = "<group>"; };
 		C51379961E8DBCE500E1BB01 /* SampleProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -80,13 +70,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14F7D02E1EE88FDE00C232AB /* TableViewDataSource.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1464377C1EEB04AC008FD84F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				146437811EEB04AC008FD84F /* SKTableViewDataSource.framework */,
+				146437831EEB04AC008FD84F /* SKTableViewDataSourceTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		14D915FF1EE5107B002D0ABA /* SampleProject */ = {
 			isa = PBXGroup;
 			children = (
@@ -121,21 +119,12 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		14D916761EE5B3D0002D0ABA /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				14D9167B1EE5B3D0002D0ABA /* TableViewDataSource.framework */,
-				14D9167D1EE5B3D0002D0ABA /* TableViewDataSourceTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		C513798D1E8DBCE500E1BB01 = {
 			isa = PBXGroup;
 			children = (
 				14D915FF1EE5107B002D0ABA /* SampleProject */,
 				C51379971E8DBCE500E1BB01 /* Products */,
-				14D916751EE5B3D0002D0ABA /* TableViewDataSource.xcodeproj */,
+				1464377B1EEB04AC008FD84F /* SKTableViewDataSource.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -162,7 +151,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				14F7D0311EE88FDE00C232AB /* PBXTargetDependency */,
 			);
 			name = SampleProject;
 			productName = TableViewDataSource;
@@ -199,8 +187,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 14D916761EE5B3D0002D0ABA /* Products */;
-					ProjectRef = 14D916751EE5B3D0002D0ABA /* TableViewDataSource.xcodeproj */;
+					ProductGroup = 1464377C1EEB04AC008FD84F /* Products */;
+					ProjectRef = 1464377B1EEB04AC008FD84F /* SKTableViewDataSource.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -211,18 +199,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		14D9167B1EE5B3D0002D0ABA /* TableViewDataSource.framework */ = {
+		146437811EEB04AC008FD84F /* SKTableViewDataSource.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			path = TableViewDataSource.framework;
-			remoteRef = 14D9167A1EE5B3D0002D0ABA /* PBXContainerItemProxy */;
+			path = SKTableViewDataSource.framework;
+			remoteRef = 146437801EEB04AC008FD84F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		14D9167D1EE5B3D0002D0ABA /* TableViewDataSourceTests.xctest */ = {
+		146437831EEB04AC008FD84F /* SKTableViewDataSourceTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = TableViewDataSourceTests.xctest;
-			remoteRef = 14D9167C1EE5B3D0002D0ABA /* PBXContainerItemProxy */;
+			path = SKTableViewDataSourceTests.xctest;
+			remoteRef = 146437821EEB04AC008FD84F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -256,14 +244,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		14F7D0311EE88FDE00C232AB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = TableViewDataSource;
-			targetProxy = 14F7D0301EE88FDE00C232AB /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		C51379B11E8DBCE500E1BB01 /* Debug */ = {
