@@ -8,7 +8,7 @@ lane :test do
   )
 
   scan(
-    scheme: "TableViewDataSource",
-    workspace: "TableViewDataSource.xcworkspace"
+    scheme: "SKTableViewDataSource",
+    workspace: "SKTableViewDataSource.xcworkspace"
   )
 end

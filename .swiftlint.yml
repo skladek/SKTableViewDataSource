@@ -1,8 +1,7 @@
 included:
-  - TableViewDataSource
+  - Source
 
 excluded:
-  - Carthage
   - Pods
 
 disabled_rules:
