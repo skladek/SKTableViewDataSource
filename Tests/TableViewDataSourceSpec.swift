@@ -23,7 +23,7 @@ class TableViewDataSourceSpec: QuickSpec {
                 let objects = ["One", "Two", "Three"]
 
                 beforeEach() {
-                    self.unitUnderTest = TableViewDataSource(objects: objects, cellReuseId: self.reuseId)
+                    self.unitUnderTest = TableViewDataSource(objects: objects)
                 }
 
                 it("Should wrap the objects array in an array and set to objects") {
@@ -35,7 +35,7 @@ class TableViewDataSourceSpec: QuickSpec {
                 let objects: [[String]] = [["One", "Two", "Three"], ["Three", "Four", "Five"]]
 
                 beforeEach() {
-                    self.unitUnderTest = TableViewDataSource(objects: objects, cellReuseId: self.reuseId)
+                    self.unitUnderTest = TableViewDataSource(objects: objects, cellNib: nil)
                 }
 
                 it("Should set the objects array") {
@@ -45,12 +45,20 @@ class TableViewDataSourceSpec: QuickSpec {
 
                 it("Should set the objects array to an empty array if the parameter is nil") {
                     let objects: [[String]]? = nil
-                    self.unitUnderTest = TableViewDataSource(objects: objects, cellReuseId: self.reuseId)
+                    self.unitUnderTest = TableViewDataSource(objects: objects, cellNib: nil)
                     expect(self.unitUnderTest.objects.count).to(equal(0))
                 }
 
-                it("Should set the reuse id") {
-                    expect(self.unitUnderTest.reuseId).to(equal(self.reuseId))
+                it("Should set the cellNib if provided") {
+                    let nib = UINib()
+                    self.unitUnderTest = TableViewDataSource(objects: objects, cell: nib)
+                    expect(self.unitUnderTest.cellNib).to(be(nib))
+                }
+
+                it("Should set the cellClass if provided") {
+                    let cellClass = UITableViewCell.self
+                    self.unitUnderTest = TableViewDataSource(objects: objects, cell: cellClass)
+                    expect(self.unitUnderTest.cellClass).to(be(cellClass))
                 }
             }
 
@@ -58,7 +66,7 @@ class TableViewDataSourceSpec: QuickSpec {
                 let objects = [["S0R0", "S0R1", "S0R2"], ["S1R0", "S1R1", "S1R2"]]
 
                 beforeEach {
-                    self.unitUnderTest = TableViewDataSource(objects: objects, cellReuseId: self.reuseId)
+                    self.unitUnderTest = TableViewDataSource(objects: objects, cellNib: nil)
                 }
 
                 it("Should delete the object at the specified index path") {
@@ -73,7 +81,7 @@ class TableViewDataSourceSpec: QuickSpec {
                 let objects = [["S0R0", "S0R1", "S0R2"], ["S1R0", "S1R1", "S1R2"]]
 
                 beforeEach {
-                    self.unitUnderTest = TableViewDataSource(objects: objects, cellReuseId: self.reuseId)
+                    self.unitUnderTest = TableViewDataSource(objects: objects, cellNib: nil)
                 }
 
                 it("Should insert the given object at the specified index path") {
@@ -89,7 +97,7 @@ class TableViewDataSourceSpec: QuickSpec {
                 let objects = [["S0R0", "S0R1", "S0R2"], ["S1R0", "S1R1", "S1R2"]]
 
                 beforeEach {
-                    self.unitUnderTest = TableViewDataSource(objects: objects, cellReuseId: self.reuseId)
+                    self.unitUnderTest = TableViewDataSource(objects: objects, cellNib: nil)
                 }
 
                 it("Should move the object at the from index path to the to index path") {
@@ -108,7 +116,7 @@ class TableViewDataSourceSpec: QuickSpec {
                 let objects = [["S0R0", "S0R1", "S0R2"], ["S1R0", "S1R1", "S1R2"]]
 
                 beforeEach {
-                    self.unitUnderTest = TableViewDataSource(objects: objects, cellReuseId: self.reuseId)
+                    self.unitUnderTest = TableViewDataSource(objects: objects, cellNib: nil)
                 }
 
                 it("Should return the object at the specified index path") {
@@ -122,7 +130,7 @@ class TableViewDataSourceSpec: QuickSpec {
                 let objects = [["S0R0", "S0R1", "S0R2"], ["S1R0", "S1R1", "S1R2"]]
 
                 beforeEach {
-                    self.unitUnderTest = TableViewDataSource(objects: objects, cellReuseId: self.reuseId)
+                    self.unitUnderTest = TableViewDataSource(objects: objects, cellNib: nil)
                 }
 
                 it("Should return 2 if there is no delegate set") {
@@ -139,7 +147,7 @@ class TableViewDataSourceSpec: QuickSpec {
 
             context("sectionIndexTitles(for:)") {
                 beforeEach {
-                    self.unitUnderTest = TableViewDataSource(objects: [""], cellReuseId: self.reuseId)
+                    self.unitUnderTest = TableViewDataSource(objects: [""])
                 }
 
                 it("should return the value from the delegate if the delegate provides one.") {
@@ -160,7 +168,7 @@ class TableViewDataSourceSpec: QuickSpec {
                 let objects = [["S0R0", "S0R1", "S0R2"], ["S1R0", "S1R1"]]
 
                 beforeEach {
-                    self.unitUnderTest = TableViewDataSource(objects: objects, cellReuseId: self.reuseId)
+                    self.unitUnderTest = TableViewDataSource(objects: objects, cellNib: nil)
                 }
 
                 it("Should return 2 if there is no delegate set.") {
@@ -185,7 +193,7 @@ class TableViewDataSourceSpec: QuickSpec {
                     indexPath = IndexPath(row: 0, section: 0)
                     tableView = UITableView()
                     delegate = MockTableViewDataSourceDelegate()
-                    self.unitUnderTest = TableViewDataSource(objects: objects, cellReuseId: self.reuseId)
+                    self.unitUnderTest = TableViewDataSource(objects: objects, cellNib: nil)
                 }
                 
                 it("should call the delegate if one is set") {
@@ -214,7 +222,7 @@ class TableViewDataSourceSpec: QuickSpec {
                     indexPath = IndexPath(row: 0, section: 0)
                     tableView = UITableView()
                     delegate = MockTableViewDataSourceDelegate()
-                    self.unitUnderTest = TableViewDataSource(objects: objects, cellReuseId: self.reuseId)
+                    self.unitUnderTest = TableViewDataSource(objects: objects, cellNib: nil)
                 }
 
                 it("should call the delegate if one is set") {
@@ -244,7 +252,8 @@ class TableViewDataSourceSpec: QuickSpec {
                     tableView = UITableView()
                     tableView.register(UITableViewCell.self, forCellReuseIdentifier: self.reuseId)
                     delegate = MockTableViewDataSourceDelegate()
-                    self.unitUnderTest = TableViewDataSource(objects: objects, cellReuseId: self.reuseId)
+                    let cellClass = UITableViewCell.self
+                    self.unitUnderTest = TableViewDataSource(objects: objects, cellClass: cellClass)
                     tableView.dataSource = self.unitUnderTest
                 }
 
@@ -259,15 +268,15 @@ class TableViewDataSourceSpec: QuickSpec {
                     delegate.shouldReturnCell = false
                     self.unitUnderTest.delegate = delegate
 
-                    expect(self.unitUnderTest.tableView(tableView, cellForRowAt: indexPath).reuseIdentifier).to(equal(self.reuseId))
+                    expect(self.unitUnderTest.tableView(tableView, cellForRowAt: indexPath)).toNot(beNil())
                 }
 
                 it("should return a cell from the table view if the delegate is not set") {
-                    expect(self.unitUnderTest.tableView(tableView, cellForRowAt: indexPath).reuseIdentifier).to(equal(self.reuseId))
+                    expect(self.unitUnderTest.tableView(tableView, cellForRowAt: indexPath)).toNot(beNil())
                 }
 
                 it("should pass the cell to the presenter if available") {
-                    self.unitUnderTest = TableViewDataSource(objects: objects, cellReuseId: self.reuseId, cellPresenter: { (cell, object) in
+                    self.unitUnderTest = TableViewDataSource(objects: objects, cellClass: UITableViewCell.self, cellPresenter: { (cell, object) in
                         expect(cell).toNot(beNil())
                     })
 
@@ -278,7 +287,7 @@ class TableViewDataSourceSpec: QuickSpec {
                 }
 
                 it("should pass the object to the presenter if available") {
-                    self.unitUnderTest = TableViewDataSource(objects: objects, cellReuseId: self.reuseId, cellPresenter: { (cell, object) in
+                    self.unitUnderTest = TableViewDataSource(objects: objects, cellClass: UITableViewCell.self, cellPresenter: { (cell, object) in
                         expect(object).to(equal("S0R0"))
                     })
 
@@ -300,7 +309,7 @@ class TableViewDataSourceSpec: QuickSpec {
                     tableView = UITableView()
                     tableView.register(UITableViewCell.self, forCellReuseIdentifier: self.reuseId)
                     delegate = MockTableViewDataSourceDelegate()
-                    self.unitUnderTest = TableViewDataSource(objects: objects, cellReuseId: self.reuseId)
+                    self.unitUnderTest = TableViewDataSource(objects: objects, cellNib: nil)
                     tableView.dataSource = self.unitUnderTest
                     self.unitUnderTest.delegate = delegate
                 }
@@ -322,7 +331,7 @@ class TableViewDataSourceSpec: QuickSpec {
                     tableView = UITableView()
                     tableView.register(UITableViewCell.self, forCellReuseIdentifier: self.reuseId)
                     delegate = MockTableViewDataSourceDelegate()
-                    self.unitUnderTest = TableViewDataSource(objects: objects, cellReuseId: self.reuseId)
+                    self.unitUnderTest = TableViewDataSource(objects: objects, cellNib: nil)
                     tableView.dataSource = self.unitUnderTest
                     self.unitUnderTest.delegate = delegate
                 }
@@ -335,7 +344,7 @@ class TableViewDataSourceSpec: QuickSpec {
 
             context("tableView(_:sectionForSectionIndexTitle:index:)") {
                 beforeEach {
-                    self.unitUnderTest = TableViewDataSource(objects: [""], cellReuseId: self.reuseId)
+                    self.unitUnderTest = TableViewDataSource(objects: [""])
                 }
 
                 it("should return the delegate value if there is a delegate") {
@@ -360,7 +369,7 @@ class TableViewDataSourceSpec: QuickSpec {
                     tableView = UITableView()
                     tableView.register(UITableViewCell.self, forCellReuseIdentifier: self.reuseId)
                     delegate = MockTableViewDataSourceDelegate()
-                    self.unitUnderTest = TableViewDataSource(objects: objects, cellReuseId: self.reuseId)
+                    self.unitUnderTest = TableViewDataSource(objects: objects, cellNib: nil)
                     tableView.dataSource = self.unitUnderTest
                     self.unitUnderTest.footerTitles = footers
                 }
@@ -400,7 +409,7 @@ class TableViewDataSourceSpec: QuickSpec {
                     tableView = UITableView()
                     tableView.register(UITableViewCell.self, forCellReuseIdentifier: self.reuseId)
                     delegate = MockTableViewDataSourceDelegate()
-                    self.unitUnderTest = TableViewDataSource(objects: objects, cellReuseId: self.reuseId)
+                    self.unitUnderTest = TableViewDataSource(objects: objects, cellNib: nil)
                     tableView.dataSource = self.unitUnderTest
                     self.unitUnderTest.headerTitles = headers
                 }
