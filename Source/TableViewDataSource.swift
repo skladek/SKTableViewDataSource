@@ -83,9 +83,9 @@ public class TableViewDataSource<T>: NSObject, UITableViewDataSource {
     ///
     /// - Parameters:
     ///   - objects: The objects to be displayed in the table view.
-    ///   - cellPresenter: An optional closure that can be used to inject view styling and further configuration.
     ///   - delegate: The object acting as the delegate to the data source.
-    public convenience init(objects: [T]?, cellPresenter: CellPresenter? = nil, delegate: TableViewDataSourceDelegate) {
+    ///   - cellPresenter: An optional closure that can be used to inject view styling and further configuration.
+    public convenience init(objects: [T]?, delegate: TableViewDataSourceDelegate, cellPresenter: CellPresenter? = nil) {
         let wrappedObjects = TableViewDataSource.wrapObjects(objects)
 
         self.init(objects: wrappedObjects, cellClass: nil, cellNib: nil, cellPresenter: cellPresenter)
@@ -98,9 +98,9 @@ public class TableViewDataSource<T>: NSObject, UITableViewDataSource {
     ///
     /// - Parameters:
     ///   - objects: The objects to be displayed in the table view.
-    ///   - cellPresenter: An optional closure that can be used to inject view styling and further configuration.
     ///   - delegate: The object acting as the delegate to the data source.
-    public convenience init(objects: [[T]]?, cellPresenter: CellPresenter? = nil, delegate: TableViewDataSourceDelegate) {
+    ///   - cellPresenter: An optional closure that can be used to inject view styling and further configuration.
+    public convenience init(objects: [[T]]?, delegate: TableViewDataSourceDelegate, cellPresenter: CellPresenter? = nil) {
         self.init(objects: objects, cellClass: nil, cellNib: nil, cellPresenter: cellPresenter)
 
         self.delegate = delegate
