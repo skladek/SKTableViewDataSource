@@ -19,23 +19,142 @@ class TableViewDataSourceSpec: QuickSpec {
 
     override func spec() {
         describe("TableViewDataSource") {
-            context("init(objects:cellReuseId:)") {
-                let objects = ["One", "Two", "Three"]
 
-                beforeEach() {
-                    self.unitUnderTest = TableViewDataSource(objects: objects, delegate: MockTableViewDataSourceDelegate())
+            // MARK: Initializers
+
+            context("init(objects:cellPresenter:delegate:)") {
+                var delegate: TableViewDataSourceDelegate!
+                var objects: [String]!
+
+                beforeEach {
+                    delegate = MockTableViewDataSourceDelegate()
+                    objects = ["One", "Two", "Three", "Four", "Five"]
+                    self.unitUnderTest = TableViewDataSource(objects: objects, delegate: delegate)
                 }
 
-                it("Should wrap the objects array in an array and set to objects") {
+                it("Should wrap the objects array") {
                     expect(self.unitUnderTest.objects.first).to(equal(objects))
+                }
+
+                it("Should set the delegate") {
+                    expect(self.unitUnderTest.delegate).to(be(delegate))
                 }
             }
 
-            context("init(objects:cellReuseId:)") {
+            context("init(objects:cellPresenter:delegate:)") {
+                var delegate: TableViewDataSourceDelegate!
+                var objects: [[String]]!
+
+                beforeEach {
+                    delegate = MockTableViewDataSourceDelegate()
+                    objects = [["One", "Two", "Three"], ["Three", "Four", "Five"]]
+                    self.unitUnderTest = TableViewDataSource(objects: objects, delegate: delegate)
+                }
+
+                it("Should set the delegate") {
+                    expect(self.unitUnderTest.delegate).to(be(delegate))
+                }
+            }
+
+            context("init(objects:cell:cellPresenter:)") {
+                var nib: UINib!
+                var objects: [String]!
+
+                beforeEach {
+                    nib = UINib()
+                    objects = ["One", "Two", "Three", "Four", "Five"]
+                    self.unitUnderTest = TableViewDataSource(objects: objects, cell: nib)
+                }
+
+                it("Should wrap the objects array") {
+                    expect(self.unitUnderTest.objects.first).to(equal(objects))
+                }
+
+                it("Should set the cellNib") {
+                    expect(self.unitUnderTest.cellNib).to(be(nib))
+                }
+
+                it("Should set the cellClass to nil") {
+                    expect(self.unitUnderTest.cellClass).to(beNil())
+                }
+            }
+
+            context("init(objects:cell:cellPresenter:)") {
+                var nib: UINib!
+                var objects: [[String]]!
+
+                beforeEach {
+                    nib = UINib()
+                    objects = [["One", "Two", "Three"], ["Three", "Four", "Five"]]
+                    self.unitUnderTest = TableViewDataSource(objects: objects, cell: nib)
+                }
+
+                it("Should set the cellNib") {
+                    expect(self.unitUnderTest.cellNib).to(be(nib))
+                }
+
+                it("Should set the cellClass to nil") {
+                    expect(self.unitUnderTest.cellClass).to(beNil())
+                }
+            }
+
+            context("init(objects:cell:cellPresenter:)") {
+                var cellClass: UITableViewCell.Type!
+                var objects: [String]!
+
+                beforeEach {
+                    cellClass = UITableViewCell.self
+                    objects = ["One", "Two", "Three", "Four", "Five"]
+                    self.unitUnderTest = TableViewDataSource(objects: objects, cell: cellClass)
+                }
+
+                it("Should wrap the objects array") {
+                    let cellClass = UITableViewCell.self
+                    self.unitUnderTest = TableViewDataSource(objects: objects, cell: cellClass)
+                    expect(self.unitUnderTest.objects.first).to(equal(objects))
+                }
+
+                it("Should set the cellClass") {
+                    let cellClass = UITableViewCell.self
+                    self.unitUnderTest = TableViewDataSource(objects: objects, cell: cellClass)
+                    expect(self.unitUnderTest.cellClass).to(be(cellClass))
+                }
+
+                it("Should set the cellNib to nil") {
+                    let cellClass = UITableViewCell.self
+                    self.unitUnderTest = TableViewDataSource(objects: objects, cell: cellClass)
+                    expect(self.unitUnderTest.cellNib).to(beNil())
+                }
+            }
+
+            context("init(objects:cell:cellPresenter:)") {
+                var cellClass: UITableViewCell.Type!
+                var objects: [[String]]!
+
+                beforeEach {
+                    cellClass = UITableViewCell.self
+                    objects = [["One", "Two", "Three"], ["Three", "Four", "Five"]]
+                    self.unitUnderTest = TableViewDataSource(objects: objects, cell: cellClass)
+                }
+
+                it("Should set the cellClass") {
+                    let cellClass = UITableViewCell.self
+                    self.unitUnderTest = TableViewDataSource(objects: objects, cell: cellClass)
+                    expect(self.unitUnderTest.cellClass).to(be(cellClass))
+                }
+
+                it("Should set the cellNib to nil") {
+                    let cellClass = UITableViewCell.self
+                    self.unitUnderTest = TableViewDataSource(objects: objects, cell: cellClass)
+                    expect(self.unitUnderTest.cellNib).to(beNil())
+                }
+            }
+
+            context("init(objects:cellClass:cellNib:cellPresenter:)") {
                 let objects: [[String]] = [["One", "Two", "Three"], ["Three", "Four", "Five"]]
 
                 beforeEach() {
-                    self.unitUnderTest = TableViewDataSource(objects: objects, cellNib: nil)
+                    self.unitUnderTest = TableViewDataSource(objects: objects, cellClass: nil, cellNib: nil, cellPresenter: nil)
                 }
 
                 it("Should set the objects array") {
@@ -45,22 +164,12 @@ class TableViewDataSourceSpec: QuickSpec {
 
                 it("Should set the objects array to an empty array if the parameter is nil") {
                     let objects: [[String]]? = nil
-                    self.unitUnderTest = TableViewDataSource(objects: objects, cellNib: nil)
+                    self.unitUnderTest = TableViewDataSource(objects: objects, cellClass: nil, cellNib: nil, cellPresenter: nil)
                     expect(self.unitUnderTest.objects.count).to(equal(0))
                 }
-
-                it("Should set the cellNib if provided") {
-                    let nib = UINib()
-                    self.unitUnderTest = TableViewDataSource(objects: objects, cell: nib)
-                    expect(self.unitUnderTest.cellNib).to(be(nib))
-                }
-
-                it("Should set the cellClass if provided") {
-                    let cellClass = UITableViewCell.self
-                    self.unitUnderTest = TableViewDataSource(objects: objects, cell: cellClass)
-                    expect(self.unitUnderTest.cellClass).to(be(cellClass))
-                }
             }
+
+            // MARK: Public Methods
 
             context("delete(indexPath:)") {
                 let objects = [["S0R0", "S0R1", "S0R2"], ["S1R0", "S1R1", "S1R2"]]
@@ -147,7 +256,7 @@ class TableViewDataSourceSpec: QuickSpec {
 
             context("sectionIndexTitles(for:)") {
                 beforeEach {
-                    self.unitUnderTest = TableViewDataSource(objects: [""], delegate: MockTableViewDataSourceDelegate())
+                    self.unitUnderTest = TableViewDataSource(objects: [[""]], cellNib: nil)
                 }
 
                 it("should return the value from the delegate if the delegate provides one.") {
@@ -163,6 +272,64 @@ class TableViewDataSourceSpec: QuickSpec {
                     expect(self.unitUnderTest.sectionIndexTitles(for: UITableView())).to(beNil())
                 }
             }
+
+            // MARK: Internal Methods
+
+            context("registerCellIfNeeded(tableView:)") {
+                var tableView: MockTableView!
+
+                beforeEach {
+                    tableView = MockTableView()
+                    self.unitUnderTest = TableViewDataSource(objects: [[String]](), cellClass: nil, cellNib: nil, cellPresenter: nil)
+                }
+
+                it("Should return the reuseId if one has already been set") {
+                    self.unitUnderTest.reuseId = "TestReuseId"
+                    let result = self.unitUnderTest.registerCellIfNeeded(tableView: tableView)
+                    expect(result).to(equal("TestReuseId"))
+                }
+
+                it("Should not call the register methods if a reuse id is already set") {
+                    self.unitUnderTest.reuseId = "TestReuseId"
+                    let _ = self.unitUnderTest.registerCellIfNeeded(tableView: tableView)
+                    expect(tableView.registerClassCaled).to(beFalse())
+                    expect(tableView.registerNibCalled).to(beFalse())
+                }
+
+                it("Should call register nib if a nib is provided in the init") {
+                    self.unitUnderTest = TableViewDataSource(objects: [[String]](), cellClass: nil, cellNib: UINib(), cellPresenter: nil)
+                    let _ = self.unitUnderTest.registerCellIfNeeded(tableView: tableView)
+                    expect(tableView.registerClassCaled).to(beFalse())
+                    expect(tableView.registerNibCalled).to(beTrue())
+                }
+
+                it("Should call register class if a class is provided in the init") {
+                    self.unitUnderTest = TableViewDataSource(objects: [[String]](), cellClass: UITableViewCell.self, cellNib: nil, cellPresenter: nil)
+                    let _ = self.unitUnderTest.registerCellIfNeeded(tableView: tableView)
+                    expect(tableView.registerClassCaled).to(beTrue())
+                }
+
+                it("Should raise an exception") {
+                    self.unitUnderTest = TableViewDataSource(objects: [[String]](), cellClass: nil, cellNib: nil, cellPresenter: nil)
+                    expect(self.unitUnderTest.registerCellIfNeeded(tableView: tableView)).to(raiseException())
+                }
+            }
+
+            context("wrapObjects(_:)") {
+                it("Should wrap the input array in an array") {
+                    let inputArray = ["One", "Two", "Three", "Four"]
+                    let result = TableViewDataSource.wrapObjects(inputArray)
+                    expect(result.first).to(equal(inputArray))
+                }
+
+                it("Should return an empty array if nil is passed in as the input array") {
+                    let inputArray: [String]? = nil
+                    let result = TableViewDataSource.wrapObjects(inputArray)
+                    expect(result).to(beAnInstanceOf(Array<Array<String>>.self))
+                }
+            }
+
+            // MARK: UITableViewDataSource Methods
 
             context("tableView(_:numberOfRowsInSection:)") {
                 let objects = [["S0R0", "S0R1", "S0R2"], ["S1R0", "S1R1"]]
@@ -344,7 +511,7 @@ class TableViewDataSourceSpec: QuickSpec {
 
             context("tableView(_:sectionForSectionIndexTitle:index:)") {
                 beforeEach {
-                    self.unitUnderTest = TableViewDataSource(objects: [""], delegate: MockTableViewDataSourceDelegate())
+                    self.unitUnderTest = TableViewDataSource(objects: [[""]], cellNib: nil)
                 }
 
                 it("should return the delegate value if there is a delegate") {

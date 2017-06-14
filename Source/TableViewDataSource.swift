@@ -68,13 +68,13 @@ public class TableViewDataSource<T>: NSObject, UITableViewDataSource {
 
     let cellClass: UITableViewCell.Type?
 
+    var reuseId: String?
+
     // MARK: Private variables
 
     fileprivate let cellPresenter: CellPresenter?
 
     fileprivate(set) var objects: [[T]]
-
-    fileprivate var reuseId: String?
 
     // MARK: Initializers
 
@@ -219,9 +219,9 @@ public class TableViewDataSource<T>: NSObject, UITableViewDataSource {
         self.objects = objects ?? [[T]]()
     }
 
-    // MARK: Private Methods
+    // MARK: Internal Methods
 
-    private func registerCellIfNeeded(tableView: UITableView) -> String {
+    func registerCellIfNeeded(tableView: UITableView) -> String {
         if let reuseId = reuseId {
             return reuseId
         }
@@ -233,7 +233,8 @@ public class TableViewDataSource<T>: NSObject, UITableViewDataSource {
         } else if let cellClass = cellClass {
             tableView.register(cellClass, forCellReuseIdentifier: generatedReuseId)
         } else {
-            assertionFailure("A cell could not be registered because a nib or class was not provided and the TableViewDataSource delegate cellForRowAtIndexPath method did not return a cell. Provide a nib, class, or cell from the delegate method.")
+            let exception = NSException(name: .internalInconsistencyException, reason: "A cell could not be registered because a nib or class was not provided and the TableViewDataSource delegate cellForRowAtIndexPath method did not return a cell. Provide a nib, class, or cell from the delegate method.", userInfo: nil)
+            exception.raise()
         }
 
         self.reuseId = generatedReuseId
@@ -241,17 +242,21 @@ public class TableViewDataSource<T>: NSObject, UITableViewDataSource {
         return generatedReuseId
     }
 
-    private func sectionArray(_ indexPath: IndexPath) -> [T] {
-        return objects[indexPath.section]
-    }
+    // MARK: Internal Static Methods
 
-    private static func wrapObjects(_ objects: [T]?) -> [[T]] {
+    static func wrapObjects(_ objects: [T]?) -> [[T]] {
         var wrappedObjects: [[T]]? = nil
         if let objects = objects {
             wrappedObjects = [objects]
         }
 
         return wrappedObjects ?? [[T]]()
+    }
+
+    // MARK: Private Methods
+
+    private func sectionArray(_ indexPath: IndexPath) -> [T] {
+        return objects[indexPath.section]
     }
 
     // MARK: UITableViewDataSource Methods
