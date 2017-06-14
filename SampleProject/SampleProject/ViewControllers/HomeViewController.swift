@@ -24,17 +24,13 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let reuseId = "HomeViewControllerReuseId"
-
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseId)
-
         let array: [Rows] = [
             .singleSection,
             .multiSection,
             .editable,
         ]
 
-        dataSource = TableViewDataSource(objects: array, cellReuseId: reuseId, cellPresenter: { (cell, object) in
+        dataSource = TableViewDataSource(objects: array, cell: UITableViewCell.self, cellPresenter: { (cell, object) in
             cell.textLabel?.text = object.rawValue
         })
 

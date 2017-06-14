@@ -64,8 +64,11 @@ public class TableViewDataSource<T>: NSObject, UITableViewDataSource {
 
     // MARK: Internal Variables
 
-    /// The cell reuse identifier
-    let reuseId: String
+    let cellNib: UINib?
+
+    let cellClass: UITableViewCell.Type?
+
+    var reuseId: String?
 
     // MARK: Private variables
 
@@ -75,29 +78,83 @@ public class TableViewDataSource<T>: NSObject, UITableViewDataSource {
 
     // MARK: Initializers
 
-    /// Initializes a data source with an objects array
+    /// Initializes a data source object. Note, using this initializer requires the delegate
+    /// to always return a cell through the cellForRowAtIndex method.
     ///
     /// - Parameters:
-    ///   - objects: The array of objects to be displayed in the table view.
-    ///   - cellReuseId: The reuse id of the cell in the table view.
-    public convenience init(objects: [T]?, cellReuseId: String, cellPresenter: CellPresenter? = nil) {
-        var wrappedObjects: [[T]]? = nil
-        if let objects = objects {
-            wrappedObjects = [objects]
-        }
+    ///   - objects: The objects to be displayed in the table view.
+    ///   - delegate: The object acting as the delegate to the data source.
+    ///   - cellPresenter: An optional closure that can be used to inject view styling and further configuration.
+    public convenience init(objects: [T]?, delegate: TableViewDataSourceDelegate, cellPresenter: CellPresenter? = nil) {
+        let wrappedObjects = TableViewDataSource.wrapObjects(objects)
 
-        self.init(objects: wrappedObjects, cellReuseId: cellReuseId, cellPresenter: cellPresenter)
+        self.init(objects: wrappedObjects, cellClass: nil, cellNib: nil, cellPresenter: cellPresenter)
+
+        self.delegate = delegate
     }
 
-    /// Initializes a data source with a 2 dimensional objects array
+    /// Initializes a data source object. Note, using this initializer requires the delegate
+    /// to always return a cell through the cellForRowAtIndex method.
     ///
     /// - Parameters:
-    ///   - objects: The array of objects to be displayed in the table view. The table view will for groups based on the sub arrays.
-    ///   - cellReuseId: The reuse id of the cell in the table view.
-    public init(objects: [[T]]?, cellReuseId: String, cellPresenter: CellPresenter? = nil) {
+    ///   - objects: The objects to be displayed in the table view.
+    ///   - delegate: The object acting as the delegate to the data source.
+    ///   - cellPresenter: An optional closure that can be used to inject view styling and further configuration.
+    public convenience init(objects: [[T]]?, delegate: TableViewDataSourceDelegate, cellPresenter: CellPresenter? = nil) {
+        self.init(objects: objects, cellClass: nil, cellNib: nil, cellPresenter: cellPresenter)
+
+        self.delegate = delegate
+    }
+
+    /// Initializes a data source object.
+    ///
+    /// - Parameters:
+    ///   - objects: The objects to be displayed in the table view.
+    ///   - cell: The nib of the cell to display in the table view.
+    ///   - cellPresenter: An optional closure that can be used to inject view styling and further configuration.
+    public convenience init(objects: [T]?, cell: UINib, cellPresenter: CellPresenter? = nil) {
+        let wrappedObjects = TableViewDataSource.wrapObjects(objects)
+
+        self.init(objects: wrappedObjects, cell: cell, cellPresenter: cellPresenter)
+    }
+
+    /// Initializes a data source object.
+    ///
+    /// - Parameters:
+    ///   - objects: The objects to be displayed in the table view.
+    ///   - cell: The nib of the cell to display in the table view.
+    ///   - cellPresenter: An optional closure that can be used to inject view styling and further configuration.
+    public convenience init(objects: [[T]]?, cell: UINib, cellPresenter: CellPresenter? = nil) {
+        self.init(objects: objects, cellNib: cell, cellPresenter: cellPresenter)
+    }
+
+    /// Initializes a data source object.
+    ///
+    /// - Parameters:
+    ///   - objects: The objects to be displayed in the table view.
+    ///   - cell: The class of the cell to display in the table view.
+    ///   - cellPresenter: An optional closure that can be used to inject view styling and further configuration.
+    public convenience init(objects: [T]?, cell: UITableViewCell.Type, cellPresenter: CellPresenter? = nil) {
+        let wrappedObjects = TableViewDataSource.wrapObjects(objects)
+
+        self.init(objects: wrappedObjects, cellClass: cell, cellPresenter: cellPresenter)
+    }
+
+    /// Initializes a data source object.
+    ///
+    /// - Parameters:
+    ///   - objects: The objects to be displayed in the table view.
+    ///   - cell: The class of the cell to display in the table view.
+    ///   - cellPresenter: An optional closure that can be used to inject view styling and further configuration.
+    public convenience init(objects: [[T]]?, cell: UITableViewCell.Type, cellPresenter: CellPresenter? = nil) {
+        self.init(objects: objects, cellClass: cell, cellPresenter: cellPresenter)
+    }
+
+    init(objects: [[T]]?, cellClass: UITableViewCell.Type? = nil, cellNib: UINib? = nil, cellPresenter: CellPresenter? = nil) {
+        self.cellClass = cellClass
+        self.cellNib = cellNib
         self.cellPresenter = cellPresenter
         self.objects = objects ?? [[T]]()
-        self.reuseId = cellReuseId
     }
 
     // MARK: Instance Methods
@@ -162,6 +219,40 @@ public class TableViewDataSource<T>: NSObject, UITableViewDataSource {
         self.objects = objects ?? [[T]]()
     }
 
+    // MARK: Internal Methods
+
+    func registerCellIfNeeded(tableView: UITableView) -> String {
+        if let reuseId = reuseId {
+            return reuseId
+        }
+
+        let generatedReuseId = UUID().uuidString
+
+        if let cellNib = cellNib {
+            tableView.register(cellNib, forCellReuseIdentifier: generatedReuseId)
+        } else if let cellClass = cellClass {
+            tableView.register(cellClass, forCellReuseIdentifier: generatedReuseId)
+        } else {
+            let exception = NSException(name: .internalInconsistencyException, reason: "A cell could not be registered because a nib or class was not provided and the TableViewDataSource delegate cellForRowAtIndexPath method did not return a cell. Provide a nib, class, or cell from the delegate method.", userInfo: nil)
+            exception.raise()
+        }
+
+        self.reuseId = generatedReuseId
+
+        return generatedReuseId
+    }
+
+    // MARK: Internal Static Methods
+
+    static func wrapObjects(_ objects: [T]?) -> [[T]] {
+        var wrappedObjects: [[T]]? = nil
+        if let objects = objects {
+            wrappedObjects = [objects]
+        }
+
+        return wrappedObjects ?? [[T]]()
+    }
+
     // MARK: Private Methods
 
     private func sectionArray(_ indexPath: IndexPath) -> [T] {
@@ -194,6 +285,8 @@ public class TableViewDataSource<T>: NSObject, UITableViewDataSource {
         if let cell = delegate?.tableView?(tableView, cellForRowAt: indexPath) {
             return cell
         }
+
+        let reuseId = registerCellIfNeeded(tableView: tableView)
 
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseId, for: indexPath)
 

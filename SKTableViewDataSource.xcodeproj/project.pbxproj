@@ -12,6 +12,7 @@
 		1431B8981EEB095700D767DA /* MockTableViewDataSourceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1431B8901EEB094A00D767DA /* MockTableViewDataSourceDelegate.swift */; };
 		1431B8991EEB095700D767DA /* TableViewDataSourceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1431B8911EEB094A00D767DA /* TableViewDataSourceSpec.swift */; };
 		146437631EEB045B008FD84F /* SKTableViewDataSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 146437591EEB045B008FD84F /* SKTableViewDataSource.framework */; };
+		14810B7F1EF1BA98005F537B /* MockTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14810B7D1EF1B9EE005F537B /* MockTableView.swift */; };
 		96FF1F5635B01DE193BFD4EC /* Pods_SKTableViewDataSourceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17E39F37AA983FEBB68D3340 /* Pods_SKTableViewDataSourceTests.framework */; };
 		A4037CCAF6A616EF41FEEC5A /* Pods_SKTableViewDataSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA505166F294676FA42C2521 /* Pods_SKTableViewDataSource.framework */; };
 /* End PBXBuildFile section */
@@ -37,6 +38,7 @@
 		1431B8911EEB094A00D767DA /* TableViewDataSourceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDataSourceSpec.swift; sourceTree = "<group>"; };
 		146437591EEB045B008FD84F /* SKTableViewDataSource.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SKTableViewDataSource.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		146437621EEB045B008FD84F /* SKTableViewDataSourceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SKTableViewDataSourceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		14810B7D1EF1B9EE005F537B /* MockTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockTableView.swift; sourceTree = "<group>"; };
 		17E39F37AA983FEBB68D3340 /* Pods_SKTableViewDataSourceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SKTableViewDataSourceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EA611E15AC3B313A20CFCDD /* Pods-SKTableViewDataSourceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKTableViewDataSourceTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SKTableViewDataSourceTests/Pods-SKTableViewDataSourceTests.release.xcconfig"; sourceTree = "<group>"; };
 		85950265CD0523A847FF3446 /* Pods-SKTableViewDataSource.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKTableViewDataSource.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SKTableViewDataSource/Pods-SKTableViewDataSource.debug.xcconfig"; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				1431B88F1EEB094A00D767DA /* Info.plist */,
+				14810B7D1EF1B9EE005F537B /* MockTableView.swift */,
 				1431B8901EEB094A00D767DA /* MockTableViewDataSourceDelegate.swift */,
 				1431B8911EEB094A00D767DA /* TableViewDataSourceSpec.swift */,
 			);
@@ -343,6 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1431B8981EEB095700D767DA /* MockTableViewDataSourceDelegate.swift in Sources */,
+				14810B7F1EF1BA98005F537B /* MockTableView.swift in Sources */,
 				1431B8991EEB095700D767DA /* TableViewDataSourceSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
