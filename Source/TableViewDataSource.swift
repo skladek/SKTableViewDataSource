@@ -78,38 +78,74 @@ public class TableViewDataSource<T>: NSObject, UITableViewDataSource {
 
     // MARK: Initializers
 
-    // TODO: Document
-    public convenience init(objects: [T]?, cellPresenter: CellPresenter? = nil) {
+    /// Initializes a data source object. Note, using this initializer requires the delegate
+    /// to always return a cell through the cellForRowAtIndex method.
+    ///
+    /// - Parameters:
+    ///   - objects: The objects to be displayed in the table view.
+    ///   - cellPresenter: An optional closure that can be used to inject view styling and further configuration.
+    ///   - delegate: The object acting as the delegate to the data source.
+    public convenience init(objects: [T]?, cellPresenter: CellPresenter? = nil, delegate: TableViewDataSourceDelegate) {
         let wrappedObjects = TableViewDataSource.wrapObjects(objects)
 
         self.init(objects: wrappedObjects, cellClass: nil, cellNib: nil, cellPresenter: cellPresenter)
+
+        self.delegate = delegate
     }
 
-    // TODO: Document
-    public convenience init(objects: [[T]]?, cellPresenter: CellPresenter? = nil) {
+    /// Initializes a data source object. Note, using this initializer requires the delegate
+    /// to always return a cell through the cellForRowAtIndex method.
+    ///
+    /// - Parameters:
+    ///   - objects: The objects to be displayed in the table view.
+    ///   - cellPresenter: An optional closure that can be used to inject view styling and further configuration.
+    ///   - delegate: The object acting as the delegate to the data source.
+    public convenience init(objects: [[T]]?, cellPresenter: CellPresenter? = nil, delegate: TableViewDataSourceDelegate) {
         self.init(objects: objects, cellClass: nil, cellNib: nil, cellPresenter: cellPresenter)
+
+        self.delegate = delegate
     }
 
-    // TODO: Document
+    /// Initializes a data source object.
+    ///
+    /// - Parameters:
+    ///   - objects: The objects to be displayed in the table view.
+    ///   - cell: The nib of the cell to display in the table view.
+    ///   - cellPresenter: An optional closure that can be used to inject view styling and further configuration.
     public convenience init(objects: [T]?, cell: UINib, cellPresenter: CellPresenter? = nil) {
         let wrappedObjects = TableViewDataSource.wrapObjects(objects)
 
         self.init(objects: wrappedObjects, cell: cell, cellPresenter: cellPresenter)
     }
 
-    // TODO: Document
+    /// Initializes a data source object.
+    ///
+    /// - Parameters:
+    ///   - objects: The objects to be displayed in the table view.
+    ///   - cell: The nib of the cell to display in the table view.
+    ///   - cellPresenter: An optional closure that can be used to inject view styling and further configuration.
     public convenience init(objects: [[T]]?, cell: UINib, cellPresenter: CellPresenter? = nil) {
         self.init(objects: objects, cellNib: cell, cellPresenter: cellPresenter)
     }
 
-    // TODO: Document
+    /// Initializes a data source object.
+    ///
+    /// - Parameters:
+    ///   - objects: The objects to be displayed in the table view.
+    ///   - cell: The class of the cell to display in the table view.
+    ///   - cellPresenter: An optional closure that can be used to inject view styling and further configuration.
     public convenience init(objects: [T]?, cell: UITableViewCell.Type, cellPresenter: CellPresenter? = nil) {
         let wrappedObjects = TableViewDataSource.wrapObjects(objects)
 
         self.init(objects: wrappedObjects, cellClass: cell, cellPresenter: cellPresenter)
     }
 
-    // TODO: Document
+    /// Initializes a data source object.
+    ///
+    /// - Parameters:
+    ///   - objects: The objects to be displayed in the table view.
+    ///   - cell: The class of the cell to display in the table view.
+    ///   - cellPresenter: An optional closure that can be used to inject view styling and further configuration.
     public convenience init(objects: [[T]]?, cell: UITableViewCell.Type, cellPresenter: CellPresenter? = nil) {
         self.init(objects: objects, cellClass: cell, cellPresenter: cellPresenter)
     }

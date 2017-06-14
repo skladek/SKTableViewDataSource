@@ -23,7 +23,7 @@ class TableViewDataSourceSpec: QuickSpec {
                 let objects = ["One", "Two", "Three"]
 
                 beforeEach() {
-                    self.unitUnderTest = TableViewDataSource(objects: objects)
+                    self.unitUnderTest = TableViewDataSource(objects: objects, delegate: MockTableViewDataSourceDelegate())
                 }
 
                 it("Should wrap the objects array in an array and set to objects") {
@@ -147,7 +147,7 @@ class TableViewDataSourceSpec: QuickSpec {
 
             context("sectionIndexTitles(for:)") {
                 beforeEach {
-                    self.unitUnderTest = TableViewDataSource(objects: [""])
+                    self.unitUnderTest = TableViewDataSource(objects: [""], delegate: MockTableViewDataSourceDelegate())
                 }
 
                 it("should return the value from the delegate if the delegate provides one.") {
@@ -344,7 +344,7 @@ class TableViewDataSourceSpec: QuickSpec {
 
             context("tableView(_:sectionForSectionIndexTitle:index:)") {
                 beforeEach {
-                    self.unitUnderTest = TableViewDataSource(objects: [""])
+                    self.unitUnderTest = TableViewDataSource(objects: [""], delegate: MockTableViewDataSourceDelegate())
                 }
 
                 it("should return the delegate value if there is a delegate") {
