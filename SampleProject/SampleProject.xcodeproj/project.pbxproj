@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1431B89B1EEB0A6700D767DA /* SKTableViewDataSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1431B89A1EEB0A6700D767DA /* SKTableViewDataSource.framework */; };
-		1431B89C1EEB0A6700D767DA /* SKTableViewDataSource.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1431B89A1EEB0A6700D767DA /* SKTableViewDataSource.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14810B781EF18B89005F537B /* SKTableViewDataSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14810B751EF18B7E005F537B /* SKTableViewDataSource.framework */; };
+		14810B791EF18B89005F537B /* SKTableViewDataSource.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14810B751EF18B7E005F537B /* SKTableViewDataSource.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		14D916141EE5107B002D0ABA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D916011EE5107B002D0ABA /* AppDelegate.swift */; };
 		14D916151EE5107B002D0ABA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14D916021EE5107B002D0ABA /* Assets.xcassets */; };
 		14D916181EE5107B002D0ABA /* EditableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D916071EE5107B002D0ABA /* EditableViewController.swift */; };
@@ -22,19 +22,26 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		146437801EEB04AC008FD84F /* PBXContainerItemProxy */ = {
+		14810B741EF18B7E005F537B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 1464377B1EEB04AC008FD84F /* SKTableViewDataSource.xcodeproj */;
+			containerPortal = 14810B6F1EF18B7E005F537B /* SKTableViewDataSource.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 146437591EEB045B008FD84F;
 			remoteInfo = SKTableViewDataSource;
 		};
-		146437821EEB04AC008FD84F /* PBXContainerItemProxy */ = {
+		14810B761EF18B7E005F537B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 1464377B1EEB04AC008FD84F /* SKTableViewDataSource.xcodeproj */;
+			containerPortal = 14810B6F1EF18B7E005F537B /* SKTableViewDataSource.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 146437621EEB045B008FD84F;
 			remoteInfo = SKTableViewDataSourceTests;
+		};
+		14810B7A1EF18B89005F537B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 14810B6F1EF18B7E005F537B /* SKTableViewDataSource.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 146437581EEB045B008FD84F;
+			remoteInfo = SKTableViewDataSource;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -45,7 +52,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				1431B89C1EEB0A6700D767DA /* SKTableViewDataSource.framework in Embed Frameworks */,
+				14810B791EF18B89005F537B /* SKTableViewDataSource.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -53,8 +60,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1431B89A1EEB0A6700D767DA /* SKTableViewDataSource.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SKTableViewDataSource.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1464377B1EEB04AC008FD84F /* SKTableViewDataSource.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = SKTableViewDataSource.xcodeproj; sourceTree = "<group>"; };
+		14810B6F1EF18B7E005F537B /* SKTableViewDataSource.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SKTableViewDataSource.xcodeproj; path = ../SKTableViewDataSource.xcodeproj; sourceTree = "<group>"; };
 		14D916011EE5107B002D0ABA /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14D916021EE5107B002D0ABA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14D916031EE5107B002D0ABA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -74,18 +80,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1431B89B1EEB0A6700D767DA /* SKTableViewDataSource.framework in Frameworks */,
+				14810B781EF18B89005F537B /* SKTableViewDataSource.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1464377C1EEB04AC008FD84F /* Products */ = {
+		14810B701EF18B7E005F537B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				146437811EEB04AC008FD84F /* SKTableViewDataSource.framework */,
-				146437831EEB04AC008FD84F /* SKTableViewDataSourceTests.xctest */,
+				14810B751EF18B7E005F537B /* SKTableViewDataSource.framework */,
+				14810B771EF18B7E005F537B /* SKTableViewDataSourceTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -127,10 +133,9 @@
 		C513798D1E8DBCE500E1BB01 = {
 			isa = PBXGroup;
 			children = (
-				1431B89A1EEB0A6700D767DA /* SKTableViewDataSource.framework */,
 				14D915FF1EE5107B002D0ABA /* SampleProject */,
 				C51379971E8DBCE500E1BB01 /* Products */,
-				1464377B1EEB04AC008FD84F /* SKTableViewDataSource.xcodeproj */,
+				14810B6F1EF18B7E005F537B /* SKTableViewDataSource.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -157,6 +162,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				14810B7B1EF18B89005F537B /* PBXTargetDependency */,
 			);
 			name = SampleProject;
 			productName = TableViewDataSource;
@@ -193,8 +199,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 1464377C1EEB04AC008FD84F /* Products */;
-					ProjectRef = 1464377B1EEB04AC008FD84F /* SKTableViewDataSource.xcodeproj */;
+					ProductGroup = 14810B701EF18B7E005F537B /* Products */;
+					ProjectRef = 14810B6F1EF18B7E005F537B /* SKTableViewDataSource.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -205,18 +211,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		146437811EEB04AC008FD84F /* SKTableViewDataSource.framework */ = {
+		14810B751EF18B7E005F537B /* SKTableViewDataSource.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = SKTableViewDataSource.framework;
-			remoteRef = 146437801EEB04AC008FD84F /* PBXContainerItemProxy */;
+			remoteRef = 14810B741EF18B7E005F537B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		146437831EEB04AC008FD84F /* SKTableViewDataSourceTests.xctest */ = {
+		14810B771EF18B7E005F537B /* SKTableViewDataSourceTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = SKTableViewDataSourceTests.xctest;
-			remoteRef = 146437821EEB04AC008FD84F /* PBXContainerItemProxy */;
+			remoteRef = 14810B761EF18B7E005F537B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -250,6 +256,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		14810B7B1EF18B89005F537B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SKTableViewDataSource;
+			targetProxy = 14810B7A1EF18B89005F537B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		C51379B11E8DBCE500E1BB01 /* Debug */ = {

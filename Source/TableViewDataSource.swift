@@ -82,12 +82,12 @@ public class TableViewDataSource<T>: NSObject, UITableViewDataSource {
     public convenience init(objects: [T]?, cellPresenter: CellPresenter? = nil) {
         let wrappedObjects = TableViewDataSource.wrapObjects(objects)
 
-        self.init(objects: wrappedObjects, cellPresenter: cellPresenter)
+        self.init(objects: wrappedObjects, cellClass: nil, cellNib: nil, cellPresenter: cellPresenter)
     }
 
     // TODO: Document
     public convenience init(objects: [[T]]?, cellPresenter: CellPresenter? = nil) {
-        self.init(objects: objects, cellPresenter: cellPresenter)
+        self.init(objects: objects, cellClass: nil, cellNib: nil, cellPresenter: cellPresenter)
     }
 
     // TODO: Document
