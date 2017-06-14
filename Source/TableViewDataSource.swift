@@ -64,8 +64,9 @@ public class TableViewDataSource<T>: NSObject, UITableViewDataSource {
 
     // MARK: Internal Variables
 
-    /// The cell reuse identifier
-    let reuseId: String
+    let cellNib: UINib?
+
+    let cellClass: UITableViewCell.Type?
 
     // MARK: Private variables
 
@@ -73,31 +74,51 @@ public class TableViewDataSource<T>: NSObject, UITableViewDataSource {
 
     fileprivate(set) var objects: [[T]]
 
+    fileprivate var reuseId: String?
+
     // MARK: Initializers
 
-    /// Initializes a data source with an objects array
-    ///
-    /// - Parameters:
-    ///   - objects: The array of objects to be displayed in the table view.
-    ///   - cellReuseId: The reuse id of the cell in the table view.
-    public convenience init(objects: [T]?, cellReuseId: String, cellPresenter: CellPresenter? = nil) {
-        var wrappedObjects: [[T]]? = nil
-        if let objects = objects {
-            wrappedObjects = [objects]
-        }
+    // TODO: Document
+    public convenience init(objects: [T]?, cellPresenter: CellPresenter? = nil) {
+        let wrappedObjects = TableViewDataSource.wrapObjects(objects)
 
-        self.init(objects: wrappedObjects, cellReuseId: cellReuseId, cellPresenter: cellPresenter)
+        self.init(objects: wrappedObjects, cellPresenter: cellPresenter)
     }
 
-    /// Initializes a data source with a 2 dimensional objects array
-    ///
-    /// - Parameters:
-    ///   - objects: The array of objects to be displayed in the table view. The table view will for groups based on the sub arrays.
-    ///   - cellReuseId: The reuse id of the cell in the table view.
-    public init(objects: [[T]]?, cellReuseId: String, cellPresenter: CellPresenter? = nil) {
+    // TODO: Document
+    public convenience init(objects: [[T]]?, cellPresenter: CellPresenter? = nil) {
+        self.init(objects: objects, cellPresenter: cellPresenter)
+    }
+
+    // TODO: Document
+    public convenience init(objects: [T]?, cell: UINib, cellPresenter: CellPresenter? = nil) {
+        let wrappedObjects = TableViewDataSource.wrapObjects(objects)
+
+        self.init(objects: wrappedObjects, cell: cell, cellPresenter: cellPresenter)
+    }
+
+    // TODO: Document
+    public convenience init(objects: [[T]]?, cell: UINib, cellPresenter: CellPresenter? = nil) {
+        self.init(objects: objects, cellNib: cell, cellPresenter: cellPresenter)
+    }
+
+    // TODO: Document
+    public convenience init(objects: [T]?, cell: UITableViewCell.Type, cellPresenter: CellPresenter? = nil) {
+        let wrappedObjects = TableViewDataSource.wrapObjects(objects)
+
+        self.init(objects: wrappedObjects, cellClass: cell, cellPresenter: cellPresenter)
+    }
+
+    // TODO: Document
+    public convenience init(objects: [[T]]?, cell: UITableViewCell.Type, cellPresenter: CellPresenter? = nil) {
+        self.init(objects: objects, cellClass: cell, cellPresenter: cellPresenter)
+    }
+
+    init(objects: [[T]]?, cellClass: UITableViewCell.Type? = nil, cellNib: UINib? = nil, cellPresenter: CellPresenter? = nil) {
+        self.cellClass = cellClass
+        self.cellNib = cellNib
         self.cellPresenter = cellPresenter
         self.objects = objects ?? [[T]]()
-        self.reuseId = cellReuseId
     }
 
     // MARK: Instance Methods
@@ -164,8 +185,37 @@ public class TableViewDataSource<T>: NSObject, UITableViewDataSource {
 
     // MARK: Private Methods
 
+    private func registerCellIfNeeded(tableView: UITableView) -> String {
+        if let reuseId = reuseId {
+            return reuseId
+        }
+
+        let generatedReuseId = UUID().uuidString
+
+        if let cellNib = cellNib {
+            tableView.register(cellNib, forCellReuseIdentifier: generatedReuseId)
+        } else if let cellClass = cellClass {
+            tableView.register(cellClass, forCellReuseIdentifier: generatedReuseId)
+        } else {
+            assertionFailure("A cell could not be registered because a nib or class was not provided and the TableViewDataSource delegate cellForRowAtIndexPath method did not return a cell. Provide a nib, class, or cell from the delegate method.")
+        }
+
+        self.reuseId = generatedReuseId
+
+        return generatedReuseId
+    }
+
     private func sectionArray(_ indexPath: IndexPath) -> [T] {
         return objects[indexPath.section]
+    }
+
+    private static func wrapObjects(_ objects: [T]?) -> [[T]] {
+        var wrappedObjects: [[T]]? = nil
+        if let objects = objects {
+            wrappedObjects = [objects]
+        }
+
+        return wrappedObjects ?? [[T]]()
     }
 
     // MARK: UITableViewDataSource Methods
@@ -194,6 +244,8 @@ public class TableViewDataSource<T>: NSObject, UITableViewDataSource {
         if let cell = delegate?.tableView?(tableView, cellForRowAt: indexPath) {
             return cell
         }
+
+        let reuseId = registerCellIfNeeded(tableView: tableView)
 
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseId, for: indexPath)
 
