@@ -157,7 +157,7 @@ public class TableViewDataSource<T>: NSObject, UITableViewDataSource {
         self.objects = objects ?? [[T]]()
     }
 
-    // MARK: Instance Methods
+    // MARK: Public Methods
 
     /// Deletes the object at the given index path
     ///
