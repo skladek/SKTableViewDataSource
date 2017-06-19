@@ -8,42 +8,7 @@
 
 import UIKit
 
-@objc
-public protocol TableViewDataSourceDelegate {
-    @objc
-    optional func numberOfSections(in tableView: UITableView) -> Int
-
-    @objc
-    optional func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
-
-    @objc
-    optional func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool
-
-    @objc
-    optional func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell?
-
-    @objc
-    optional func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)
-
-    @objc
-    optional func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath)
-
-    @objc
-    optional func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-
-    @objc
-    optional func sectionIndexTitles(for tableView: UITableView) -> [String]?
-
-    @objc
-    optional func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int
-
-    @objc
-    optional func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String?
-
-    @objc
-    optional func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
-}
-
+/// Provides an object to act as a UITableViewDataSource.
 public class TableViewDataSource<T>: NSObject, UITableViewDataSource {
 
     // MARK: Class Types
@@ -259,6 +224,7 @@ public class TableViewDataSource<T>: NSObject, UITableViewDataSource {
 
     // MARK: UITableViewDataSource Methods
 
+    /// UITableviewDataSource implementation.
     public func numberOfSections(in tableView: UITableView) -> Int {
         if let sections = delegate?.numberOfSections?(in: tableView) {
             return sections
@@ -267,18 +233,22 @@ public class TableViewDataSource<T>: NSObject, UITableViewDataSource {
         return objects.count
     }
 
+    /// UITableviewDataSource implementation.
     public func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         return delegate?.sectionIndexTitles?(for: tableView)
     }
 
+    /// UITableviewDataSource implementation.
     public func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return delegate?.tableView?(tableView, canEditRowAt: indexPath) ?? false
     }
 
+    /// UITableviewDataSource implementation.
     public func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return delegate?.tableView?(tableView, canMoveRowAt: indexPath) ?? true
     }
 
+    /// UITableviewDataSource implementation.
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = delegate?.tableView?(tableView, cellForRowAt: indexPath) {
             return cell
@@ -294,14 +264,17 @@ public class TableViewDataSource<T>: NSObject, UITableViewDataSource {
         return cell
     }
 
+    /// UITableviewDataSource implementation.
     public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         delegate?.tableView?(tableView, commit: editingStyle, forRowAt: indexPath)
     }
 
+    /// UITableviewDataSource implementation.
     public func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         delegate?.tableView?(tableView, moveRowAt: sourceIndexPath, to: destinationIndexPath)
     }
 
+    /// UITableviewDataSource implementation.
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let rows = delegate?.tableView?(tableView, numberOfRowsInSection: section) {
             return rows
@@ -313,10 +286,12 @@ public class TableViewDataSource<T>: NSObject, UITableViewDataSource {
         return section.count
     }
 
+    /// UITableviewDataSource implementation.
     public func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
         return delegate?.tableView?(tableView, sectionForSectionIndexTitle: title, at: index) ?? -1
     }
 
+    /// UITableviewDataSource implementation.
     public func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         var footerTitle: String?
 
@@ -329,6 +304,7 @@ public class TableViewDataSource<T>: NSObject, UITableViewDataSource {
         return footerTitle
     }
 
+    /// UITableviewDataSource implementation.
     public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         var headerTitle: String?
 
