@@ -1,11 +1,3 @@
-//
-//  MockTableViewDataSourceDelegate.swift
-//  TableViewDataSource
-//
-//  Created by Sean on 5/11/17.
-//  Copyright © 2017 skladek. All rights reserved.
-//
-
 import Foundation
 import UIKit
 
