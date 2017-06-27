@@ -8,6 +8,12 @@
 
 SKTableViewDataSource provides an object to handle much of the standard UITableViewDataSource logic. It handles calculating row and section counts, retrieving cells, and provides methods for updating the underlying array powering the data source. Check out the SampleProject in the workspace to see some usage examples.
 
+- [Installation](#installation)
+- [Initialization](#initialization)
+- [CellPresenter](#cellpresenter)
+- [TableViewDataSourceDelegate](#tableviewdatasourcedelegate)
+- [Updating The Data Array](#updating-the-data-array)
+
 ---
 
 ## Installation

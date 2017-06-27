@@ -1,11 +1,3 @@
-//
-//  TableViewDataSourceDelegate.swift
-//  SKTableViewDataSource
-//
-//  Created by Sean on 6/18/17.
-//  Copyright © 2017 Sean Kladek. All rights reserved.
-//
-
 import Foundation
 
 /// Exposes all of the UITableViewDataSource methods to allow overriding default implementations.
