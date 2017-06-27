@@ -1,11 +1,3 @@
-//
-//  TableViewDataSourceSpec.swift
-//  TableViewDataSource
-//
-//  Created by Sean Kladek on 3/30/17.
-//  Copyright © 2017 skladek. All rights reserved.
-//
-
 import Foundation
 import Nimble
 import Quick
@@ -606,7 +598,7 @@ class TableViewDataSourceSpec: QuickSpec {
                 }
             }
 
-            context("objects(_:)") {
+            context("setObjects(_:)") {
                 it("Should set objects to an empty array if nil is passed in as a 2 dimensional array.") {
                     let nilStringArray: [[String]]? = nil
                     self.unitUnderTest.setObjects(nilStringArray)

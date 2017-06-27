@@ -1,11 +1,3 @@
-//
-//  TableViewDataSource.swift
-//  TableViewDataSource
-//
-//  Created by Sean Kladek on 3/30/17.
-//  Copyright © 2017 skladek. All rights reserved.
-//
-
 import UIKit
 
 /// Provides an object to act as a UITableViewDataSource.
