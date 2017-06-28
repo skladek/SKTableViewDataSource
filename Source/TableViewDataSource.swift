@@ -21,16 +21,13 @@ public class TableViewDataSource<T>: NSObject, UITableViewDataSource {
 
     // MARK: Internal Variables
 
-    let cellNib: UINib?
-
     let cellClass: UITableViewCell.Type?
-
+    let cellNib: UINib?
     var reuseId: String?
 
     // MARK: Private variables
 
     fileprivate let cellPresenter: CellPresenter?
-
     fileprivate(set) var objects: [[T]]
 
     // MARK: Initializers
