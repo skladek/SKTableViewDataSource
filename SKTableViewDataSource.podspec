@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = 'SKTableViewDataSource'
-  spec.version = '1.0.2'
+  spec.version = '2.0.0'
   spec.license = 'MIT'
   spec.summary = 'An easy to configure data source for UITableView.'
   spec.homepage = 'https://github.com/skladek/SKTableViewDataSource'
