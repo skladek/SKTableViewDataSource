@@ -5,12 +5,12 @@ inhibit_all_warnings!
 
 target 'SKTableViewDataSource' do
 	project 'SKTableViewDataSource.xcodeproj'
-	pod 'SwiftLint', '= 0.19.0'
+	pod 'SwiftLint', '= 0.23.1'
 end
 
 target 'SKTableViewDataSourceTests' do
 	workspace 'SKTableViewDataSource.xcworkspace'
 	project 'SKTableViewDataSource.xcodeproj'
-	pod 'Nimble', '= 7.0.0'
-	pod 'Quick', '= 1.1.0'
+	pod 'Nimble', '= 7.0.2'
+	pod 'Quick', '= 1.2.0'
 end
