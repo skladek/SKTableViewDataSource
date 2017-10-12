@@ -7,6 +7,7 @@ class EditableViewController: UIViewController {
 
     var dataSource: TableViewDataSource<String>?
 
+    @objc
     func editTapped() {
         tableView.isEditing = !tableView.isEditing
     }

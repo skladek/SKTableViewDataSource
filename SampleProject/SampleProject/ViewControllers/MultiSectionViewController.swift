@@ -19,7 +19,10 @@ class MultiSectionViewController: UIViewController {
                 continue
             }
 
-            let firstLetter = firstWord.substring(to: firstWord.index(firstWord.startIndex, offsetBy: 1))
+            let index = firstWord.index(firstWord.startIndex, offsetBy: 1)
+            let firstLetterSubstring = firstWord[..<index]
+            let firstLetter = String(firstLetterSubstring)
+
             headerTitles.append(firstLetter)
         }
 
