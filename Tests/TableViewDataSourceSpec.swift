@@ -580,21 +580,20 @@ class TableViewDataSourceSpec: QuickSpec {
                     expect(self.unitUnderTest.tableView(tableView, titleForHeaderInSection: 0)).to(equal("testHeaderFromMock"))
                 }
 
-                it("should return the header from the footers array if the delegate returns nil") {
+                it("should return the header from the headers array if the delegate returns nil") {
                     delegate.shouldReturnHeader = false
                     self.unitUnderTest.delegate = delegate
 
                     expect(self.unitUnderTest.tableView(tableView, titleForHeaderInSection: 0)).to(equal("section0Header"))
                 }
 
-                it("should return the header from the footers array if the delegate is not set") {
+                it("should return the header from the headers array if the delegate is not set") {
                     expect(self.unitUnderTest.tableView(tableView, titleForHeaderInSection: 0)).to(equal("section0Header"))
                 }
 
                 it("should retun nil if there is no delegate and no headers array") {
                     self.unitUnderTest.headerTitles = nil
-
-                    expect(self.unitUnderTest.tableView(tableView, titleForFooterInSection: 0)).to(beNil())
+                    expect(self.unitUnderTest.tableView(tableView, titleForHeaderInSection: 0)).to(beNil())
                 }
             }
 
