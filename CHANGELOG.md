@@ -2,10 +2,15 @@
 All notable changes to this project will be documented in this file.
 
 #### 2.x Releases
-- `2.0.x` Releases - [2.0.0](#200)
+- `2.0.x` Releases - [2.0.0](#200) | [2.1.0](#210)
 
 #### 1.x Releases
 - `1.0.x` Releases - [1.0.0](#100) | [1.0.1](#101) | [1.0.2](#102)
+
+## [2.1.0](https://github.com/skladek/SKTableViewDataSource/releases/tag/2.1.0)
+
+#### Updated
+- Publicly exposed the getter for the objects property
 
 ## [2.0.0](https://github.com/skladek/SKTableViewDataSource/releases/tag/2.0.0)
 
