@@ -19,6 +19,9 @@ public class TableViewDataSource<T>: NSObject, UITableViewDataSource {
     /// An array of titles for the header sections.
     public var headerTitles: [String]?
 
+    /// The array of objects powering the table view. Read only property, set using the setObjects methods.
+    public fileprivate(set) var objects: [[T]]
+
     // MARK: Internal Variables
 
     let cellClass: UITableViewCell.Type?
@@ -28,7 +31,6 @@ public class TableViewDataSource<T>: NSObject, UITableViewDataSource {
     // MARK: Private variables
 
     fileprivate let cellPresenter: CellPresenter?
-    fileprivate(set) var objects: [[T]]
 
     // MARK: Initializers
 
