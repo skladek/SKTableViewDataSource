@@ -1,7 +1,7 @@
 import UIKit
 
 /// Provides an object to act as a UITableViewDataSource.
-public class TableViewDataSource<T>: NSObject, UITableViewDataSource {
+public class TableViewDataSource<T>: NSObject, UITableViewDataSource where T: Equatable {
 
     // MARK: Class Types
 
@@ -120,6 +120,20 @@ public class TableViewDataSource<T>: NSObject, UITableViewDataSource {
         var section = sectionArray(indexPath)
         section.remove(at: indexPath.row)
         objects[indexPath.section] = section
+    }
+
+    public func indexPathOf(_ object: T) -> IndexPath? {
+        var indexPath: IndexPath?
+
+        for subarray in objects {
+            if let row = subarray.index(of: object),
+                let section = objects.index(of: subarray) {
+                indexPath = IndexPath(row: row, section: section)
+                break
+            }
+        }
+
+        return indexPath
     }
 
     /// Inserts the given object at the specified index.

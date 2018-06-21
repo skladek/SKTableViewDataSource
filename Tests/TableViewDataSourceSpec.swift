@@ -178,6 +178,25 @@ class TableViewDataSourceSpec: QuickSpec {
                 }
             }
 
+            context("indexPathOf(_: T) -> IndexPath?") {
+                let objects = [["S0R0", "S0R1", "S0R2"], ["S1R0", "S1R1", "S1R2"]]
+
+                beforeEach {
+                    self.unitUnderTest = TableViewDataSource(objects: objects, cellNib: nil)
+                }
+
+                it("Should return nil if the object is not contained in the array") {
+                    let result = self.unitUnderTest.indexPathOf("S2R4")
+                    expect(result).to(beNil())
+                }
+
+                it("Should return the index path if the item is contained in the array") {
+                    let result = self.unitUnderTest.indexPathOf("S0R1")
+                    let expectedIndexPath = IndexPath(row: 1, section: 0)
+                    expect(result).to(equal(expectedIndexPath))
+                }
+            }
+
             context("insert(_:indexPath:)") {
                 let objects = [["S0R0", "S0R1", "S0R2"], ["S1R0", "S1R1", "S1R2"]]
 
@@ -213,7 +232,7 @@ class TableViewDataSourceSpec: QuickSpec {
                 }
             }
 
-            context("object(indexPath:)") {
+            context("object(indexPath:) -> T") {
                 let objects = [["S0R0", "S0R1", "S0R2"], ["S1R0", "S1R1", "S1R2"]]
 
                 beforeEach {
