@@ -1,7 +1,7 @@
 import UIKit
 
 /// Provides an object to act as a UITableViewDataSource.
-public class TableViewDataSource<T>: NSObject, UITableViewDataSource {
+public class TableViewDataSource<T>: NSObject, UITableViewDataSource where T: Equatable {
 
     // MARK: Class Types
 
@@ -116,10 +116,28 @@ public class TableViewDataSource<T>: NSObject, UITableViewDataSource {
     /// Deletes the object at the given index path
     ///
     /// - Parameter indexPath: The index path of the object to delete.
-    public func delete(indexPath: IndexPath) {
+    public func deleteObjectAt(_ indexPath: IndexPath) {
         var section = sectionArray(indexPath)
         section.remove(at: indexPath.row)
         objects[indexPath.section] = section
+    }
+
+    /// Returns the index path of the object or nil if the object is not contained in the objects array.
+    ///
+    /// - Parameter object: The object to retrieve the index path for.
+    /// - Returns: The index path of the object or nil if it is not contained in the objects array.
+    public func indexPathOf(_ object: T) -> IndexPath? {
+        var indexPath: IndexPath?
+
+        for subarray in objects {
+            if let row = subarray.index(of: object),
+                let section = objects.index(of: subarray) {
+                indexPath = IndexPath(row: row, section: section)
+                break
+            }
+        }
+
+        return indexPath
     }
 
     /// Inserts the given object at the specified index.
@@ -138,9 +156,9 @@ public class TableViewDataSource<T>: NSObject, UITableViewDataSource {
     /// - Parameters:
     ///   - sourceIndexPath: The current index path of the object.
     ///   - destinationIndexPath: The index path where the object should be after the move.
-    public func moveFrom(_ sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let movedObject = object(sourceIndexPath)
-        delete(indexPath: sourceIndexPath)
+    public func moveObjectFrom(_ sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let movedObject = objectAt(sourceIndexPath)
+        deleteObjectAt(sourceIndexPath)
         insert(object: movedObject, at: destinationIndexPath)
     }
 
@@ -148,7 +166,7 @@ public class TableViewDataSource<T>: NSObject, UITableViewDataSource {
     ///
     /// - Parameter indexPath: The index path of the object to retrieve.
     /// - Returns: Returns the object at the provided index path.
-    public func object(_ indexPath: IndexPath) -> T {
+    public func objectAt(_ indexPath: IndexPath) -> T {
         let section = sectionArray(indexPath)
 
         return section[indexPath.row]
@@ -249,7 +267,7 @@ public class TableViewDataSource<T>: NSObject, UITableViewDataSource {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseId, for: indexPath)
 
-        let object = self.object(indexPath)
+        let object = self.objectAt(indexPath)
         cellPresenter?(cell, object)
 
         return cell

@@ -39,11 +39,11 @@ extension EditableViewController: TableViewDataSourceDelegate {
             return
         }
 
-        dataSource?.delete(indexPath: indexPath)
+        dataSource?.deleteObjectAt(indexPath)
         tableView.deleteRows(at: [indexPath], with: .automatic)
     }
 
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        dataSource?.moveFrom(sourceIndexPath, to: destinationIndexPath)
+        dataSource?.moveObjectFrom(sourceIndexPath, to: destinationIndexPath)
     }
 }

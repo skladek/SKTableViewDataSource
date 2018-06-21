@@ -5,7 +5,7 @@ inhibit_all_warnings!
 
 target 'SKTableViewDataSource' do
 	project 'SKTableViewDataSource.xcodeproj'
-	pod 'SwiftLint', '= 0.23.1'
+	pod 'SwiftLint', '= 0.25.1'
 end
 
 target 'SKTableViewDataSourceTests' do

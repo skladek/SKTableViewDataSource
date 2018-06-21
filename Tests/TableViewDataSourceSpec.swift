@@ -171,10 +171,29 @@ class TableViewDataSourceSpec: QuickSpec {
                 }
 
                 it("Should delete the object at the specified index path") {
-                    self.unitUnderTest.delete(indexPath: IndexPath(row: 1, section: 1))
+                    self.unitUnderTest.deleteObjectAt(IndexPath(row: 1, section: 1))
                     let sectionArray = self.unitUnderTest.objects[1]
 
                     expect(sectionArray).to(equal(["S1R0", "S1R2"]))
+                }
+            }
+
+            context("indexPathOf(_: T) -> IndexPath?") {
+                let objects = [["S0R0", "S0R1", "S0R2"], ["S1R0", "S1R1", "S1R2"]]
+
+                beforeEach {
+                    self.unitUnderTest = TableViewDataSource(objects: objects, cellNib: nil)
+                }
+
+                it("Should return nil if the object is not contained in the array") {
+                    let result = self.unitUnderTest.indexPathOf("S2R4")
+                    expect(result).to(beNil())
+                }
+
+                it("Should return the index path if the item is contained in the array") {
+                    let result = self.unitUnderTest.indexPathOf("S0R1")
+                    let expectedIndexPath = IndexPath(row: 1, section: 0)
+                    expect(result).to(equal(expectedIndexPath))
                 }
             }
 
@@ -204,7 +223,7 @@ class TableViewDataSourceSpec: QuickSpec {
                 it("Should move the object at the from index path to the to index path") {
                     let fromIndexPath = IndexPath(row: 1, section: 0)
                     let toIndexPath = IndexPath(row: 2, section: 1)
-                    self.unitUnderTest.moveFrom(fromIndexPath, to: toIndexPath)
+                    self.unitUnderTest.moveObjectFrom(fromIndexPath, to: toIndexPath)
                     let sectionZero = self.unitUnderTest.objects[0]
                     let sectionOne = self.unitUnderTest.objects[1]
 
@@ -213,7 +232,7 @@ class TableViewDataSourceSpec: QuickSpec {
                 }
             }
 
-            context("object(indexPath:)") {
+            context("object(indexPath:) -> T") {
                 let objects = [["S0R0", "S0R1", "S0R2"], ["S1R0", "S1R1", "S1R2"]]
 
                 beforeEach {
@@ -222,8 +241,7 @@ class TableViewDataSourceSpec: QuickSpec {
 
                 it("Should return the object at the specified index path") {
                     let indexPath = IndexPath(row: 1, section: 1)
-
-                    expect(self.unitUnderTest.object(indexPath)).to(equal("S1R1"))
+                    expect(self.unitUnderTest.objectAt(indexPath)).to(equal("S1R1"))
                 }
             }
 
