@@ -84,16 +84,19 @@ Each initialization method for auto cell registration has an optional `CellPrese
 
 There are a handful of methods for manipulating the data in the array. Updating the data source will not trigger any sort of update in the table view. That must be handled by the developer.
 
-### delete(indexPath:)
+### deleteObjectAt(_:)
 This will delete the object at the provided index path.
 
-### insert(indexPath:)
+### indexPathOf(_:) -> IndexPath?
+This will return the index path of the input object.
+
+### insert(object:at:)
 This will insert the provided object at the provided index path.
 
-### moveFrom(_:to:)
+### moveObjectFrom(_:to:)
 This will move the object at the from index path to the to index path.
 
-### object(indexPath:)
+### objectAt(_:) -> T
 This returns the object at the provided index path.
 
 ### setObjects(_:)
