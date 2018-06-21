@@ -32,7 +32,7 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let object = dataSource?.object(indexPath) else {
+        guard let object = dataSource?.objectAt(indexPath) else {
             return
         }
 
