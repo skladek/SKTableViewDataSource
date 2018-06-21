@@ -171,7 +171,7 @@ class TableViewDataSourceSpec: QuickSpec {
                 }
 
                 it("Should delete the object at the specified index path") {
-                    self.unitUnderTest.delete(indexPath: IndexPath(row: 1, section: 1))
+                    self.unitUnderTest.deleteObjectAt(IndexPath(row: 1, section: 1))
                     let sectionArray = self.unitUnderTest.objects[1]
 
                     expect(sectionArray).to(equal(["S1R0", "S1R2"]))
@@ -223,7 +223,7 @@ class TableViewDataSourceSpec: QuickSpec {
                 it("Should move the object at the from index path to the to index path") {
                     let fromIndexPath = IndexPath(row: 1, section: 0)
                     let toIndexPath = IndexPath(row: 2, section: 1)
-                    self.unitUnderTest.moveFrom(fromIndexPath, to: toIndexPath)
+                    self.unitUnderTest.moveObjectFrom(fromIndexPath, to: toIndexPath)
                     let sectionZero = self.unitUnderTest.objects[0]
                     let sectionOne = self.unitUnderTest.objects[1]
 
@@ -241,8 +241,7 @@ class TableViewDataSourceSpec: QuickSpec {
 
                 it("Should return the object at the specified index path") {
                     let indexPath = IndexPath(row: 1, section: 1)
-
-                    expect(self.unitUnderTest.object(indexPath)).to(equal("S1R1"))
+                    expect(self.unitUnderTest.objectAt(indexPath)).to(equal("S1R1"))
                 }
             }
 
